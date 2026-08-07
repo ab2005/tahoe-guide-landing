@@ -111,7 +111,7 @@ img{max-width:100%;display:block}
   background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);
   overflow:hidden;display:flex;flex-direction:column;
 }
-.tab img{width:100%;aspect-ratio:16/8;object-fit:cover}
+.tab img{width:100%;height:auto;aspect-ratio:16/8;object-fit:cover}
 .tab__body{padding:18px 18px 20px}
 .tab__key{
   font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.1em;
@@ -277,7 +277,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img src="photos/house-paddleboard-860.webp" alt="Paddleboarding on Lake Tahoe" loading="lazy" width="860" height="430">
+          <img src="photos/kiva-beach-740.webp" alt="Snowy Tahoe mountains reflected in the lake at Kiva Beach" loading="lazy" width="740" height="264">
           <div class="tab__body">
             <p class="tab__key">Around</p>
             <h3 class="tab__h">Places we've been ourselves</h3>
@@ -290,18 +290,39 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img src="photos/house-hottub-860.webp" alt="The hot tub on the deck at dusk" loading="lazy" width="860" height="430">
+          <img src="photos/house-livingroom-860.webp" alt="The living room of the house" loading="lazy" width="860" height="620">
           <div class="tab__body">
-            <p class="tab__key">Book · Chat</p>
-            <h3 class="tab__h">Everything local business offers</h3>
+            <p class="tab__key">Chat</p>
+            <h3 class="tab__h">The concierge, in writing</h3>
             <p class="tab__p">
-              A full catalogue you can book from: cruise tickets, bikes, kayaks,
-              snowmobiles, concerts — with something that fits whatever the weather
-              does. And Chat is the concierge in writing: an open conversation about
-              your plans, your days, your questions.
+              The interface everyone already knows — a conversation with an AI
+              assistant, in text. Type a question, get an answer, keep the thread
+              going: your plans, your days, anything about the house or the lake.
+              Same brain as the voice on the phone.
             </p>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="sec__label">Book</p>
+      <h2 class="sec__title">Everything local business offers, laid out on shelves</h2>
+      <div class="stay">
+        <img src="photos/house-paddleboard-860.webp" alt="Paddleboarding on Lake Tahoe" loading="lazy" width="860" height="430">
+        <div class="stay__body">
+          <p class="stay__p" style="margin-top:0">
+            Tickets, tours, cruises, rentals, concerts and events — around two
+            hundred offers in the Tahoe area, so there is a real choice to make.
+            The guide has sorted, analysed and shelved every one of them, so
+            finding the one that suits you — and the weather — takes minutes, not
+            an evening of open tabs. A shelf shows a selection; every shelf opens
+            into the full catalogue, and nothing is hidden.
+          </p>
+          <a class="btn btn--line" href="https://tahoe-guestbook.vercel.app/book">Browse the shelves</a>
+        </div>
       </div>
     </div>
   </section>
