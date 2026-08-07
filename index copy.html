@@ -112,8 +112,6 @@ img{max-width:100%;display:block}
   overflow:hidden;display:flex;flex-direction:column;
 }
 .tab img{width:100%;height:auto;aspect-ratio:16/8;object-fit:cover}
-/* Product screenshots are tall phone captures: crop from the top, keep more height. */
-.img--shot{aspect-ratio:4/3.4;object-position:top}
 .tab__body{padding:18px 18px 20px}
 .tab__key{
   font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.1em;
@@ -162,12 +160,6 @@ img{max-width:100%;display:block}
   font-family:var(--mono);font-size:var(--fs-meta);color:var(--dark-label);
   border-left:2px solid var(--live);padding-left:12px;margin-top:16px;
 }
-.phone__grid{display:grid;gap:26px}
-@media(min-width:720px){.phone__grid{grid-template-columns:1.5fr 1fr;align-items:center}}
-.phone__shot{
-  width:100%;max-width:300px;height:auto;border-radius:14px;
-  border:1px solid var(--dark-hi);justify-self:center;
-}
 
 /* Honesty rows */
 .honest{display:grid;gap:0;margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card)}
@@ -180,7 +172,6 @@ img{max-width:100%;display:block}
 .stay{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden}
 @media(min-width:720px){.stay{display:grid;grid-template-columns:1fr 1fr}}
 .stay img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/9}
-.stay img.img--top{object-position:top}
 .stay__body{padding:24px 22px}
 .stay__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:8px}
 .stay__body .btn{margin-top:18px}
@@ -262,7 +253,7 @@ img{max-width:100%;display:block}
       </p>
       <div class="tabs">
         <article class="tab">
-          <img class="img--shot" src="photos/shot-now.webp" alt="The Now tab: the weather verdict over the live lake cam, and today's plan" loading="lazy" width="780" height="1400">
+          <img src="photos/cam-tile-804.webp" alt="The live lake cam: Lake Tahoe from Stateline" loading="lazy" width="804" height="402">
           <div class="tab__body">
             <p class="tab__key">Now</p>
             <h3 class="tab__h">Your day at a glance</h3>
@@ -273,7 +264,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img class="img--shot" src="photos/shot-house.webp" alt="The House tab: the questions guests actually ask, most-asked first" loading="lazy" width="780" height="1400">
+          <img src="photos/house-sauna-out-860.webp" alt="The outdoor sauna behind the house" loading="lazy" width="860" height="430">
           <div class="tab__body">
             <p class="tab__key">House</p>
             <h3 class="tab__h">The house, explained</h3>
@@ -299,7 +290,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img class="img--shot" src="photos/shot-chat.webp" alt="The Chat tab: the concierge opens with the day's weather and an offer to plan it" loading="lazy" width="780" height="1400">
+          <img src="photos/house-livingroom-860.webp" alt="The living room of the house" loading="lazy" width="860" height="620">
           <div class="tab__body">
             <p class="tab__key">Chat</p>
             <h3 class="tab__h">The concierge, in writing</h3>
@@ -320,7 +311,7 @@ img{max-width:100%;display:block}
       <p class="sec__label">Book</p>
       <h2 class="sec__title">Everything local business offers, laid out on shelves</h2>
       <div class="stay">
-        <img class="img--top" src="photos/shot-book.webp" alt="The Book tab: the Out-on-the-water shelf, the hosts' pick first" loading="lazy" width="780" height="1400">
+        <img src="photos/book-shelves.svg" alt="A catalogue of local offers on shelves: cruises, kayaks, bikes, concerts, tours" loading="lazy" width="860" height="430">
         <div class="stay__body">
           <p class="stay__p" style="margin-top:0">
             Tickets, tours, cruises, rentals, concerts and events — around two
@@ -365,8 +356,6 @@ img{max-width:100%;display:block}
       <div class="phone">
         <p class="phone__label">The concierge</p>
         <h2 class="phone__h">Around Tahoe, your voice is faster than any screen</h2>
-        <div class="phone__grid">
-        <div>
         <p class="phone__p">
           Out here the moments you need help are exactly the moments you can't read a
           screen: hands on the wheel, halfway up a trail, gloves on at a trailhead.
@@ -388,9 +377,6 @@ img{max-width:100%;display:block}
           reaches your host directly.
         </p>
         <p class="phone__quote">"Hey Siri, call Tahoe Concierge" — works from the car.</p>
-        </div>
-        <img class="phone__shot" src="photos/shot-ask.webp" alt="Talking to the house: one filled button to talk, one to call, one to save the contact" loading="lazy" width="780" height="1400">
-        </div>
       </div>
     </div>
   </section>
