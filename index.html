@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tahoe Now — the guide that comes with the house</title>
-<meta name="description" content="Every stay at the house comes with its own guide: the house's answers, the hosts' places, a live lake cam, bookable trips, and a phone line that actually knows the house.">
-<meta property="og:title" content="Tahoe Now — the guide that comes with the house">
-<meta property="og:description" content="One link, sent with your booking. No app, no account. It knows the house, the lake, and what's worth your day — and it answers the phone.">
+<title>Tahoe Now — your stay, made the most of</title>
+<meta name="description" content="Every stay at the house comes with its own concierge and guide: the places the hosts love, everything local businesses offer, a live look at the lake, and a personal plan for your days — built in a conversation.">
+<meta property="og:title" content="Tahoe Now — your stay, made the most of">
+<meta property="og:description" content="A guide and a concierge that come with the house. Ask by voice, see the lake live, pick from everything the area offers, and turn it into your own plan.">
 <meta property="og:image" content="https://tahoe-guestbook.vercel.app/photos/og-card.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,11 +50,11 @@ img{max-width:100%;display:block}
 }
 .hero__title{
   font-size:var(--fs-display);line-height:1.12;font-weight:700;
-  letter-spacing:-.015em;max-width:15ch;
+  letter-spacing:-.015em;max-width:16ch;
 }
 .hero__lead{
   font-size:var(--fs-title);line-height:1.45;color:var(--ink-2);
-  max-width:34ch;margin-top:18px;font-weight:400;
+  max-width:38ch;margin-top:18px;font-weight:400;
 }
 .hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 /* One filled accent on the page: the door into the guide. */
@@ -87,7 +87,7 @@ img{max-width:100%;display:block}
   text-transform:uppercase;color:var(--green);margin-bottom:10px;
 }
 .sec__title{font-size:var(--fs-head);font-weight:700;letter-spacing:-.01em}
-.sec__lead{color:var(--ink-2);margin-top:10px;max-width:56ch}
+.sec__lead{color:var(--ink-2);margin-top:10px;max-width:58ch}
 
 /* Steps */
 .steps{display:grid;gap:14px;margin-top:26px}
@@ -152,10 +152,14 @@ img{max-width:100%;display:block}
   font-family:var(--mono);font-size:var(--fs-meta);letter-spacing:.08em;
   text-transform:uppercase;color:var(--live);margin-bottom:10px;
 }
-.phone__h{color:#fff;font-size:var(--fs-head);font-weight:700;max-width:24ch}
+.phone__h{color:#fff;font-size:var(--fs-head);font-weight:700;max-width:26ch}
 .phone__p{margin-top:12px;max-width:58ch}
 .phone__p a{color:var(--live)}
 .phone__p a:hover{color:#fff}
+.phone__quote{
+  font-family:var(--mono);font-size:var(--fs-meta);color:var(--dark-label);
+  border-left:2px solid var(--live);padding-left:12px;margin-top:16px;
+}
 
 /* Honesty rows */
 .honest{display:grid;gap:0;margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card)}
@@ -183,10 +187,12 @@ img{max-width:100%;display:block}
 <header class="hero">
   <div class="wrap">
     <p class="hero__eyebrow">South Lake Tahoe · a house on Tuolumne Dr</p>
-    <h1 class="hero__title">The house comes with its own guide.</h1>
+    <h1 class="hero__title">Your days here, made the most of.</h1>
     <p class="hero__lead">
-      One link, sent with your booking. No app, no account, nothing to install.
-      It knows the house, the lake, and what's worth your day — and it answers the phone.
+      A guest book tells you how the house works. Ours does that — and then helps
+      you spend your time here well: the places we love, everything the area
+      offers, and a concierge you can just ask. One link, sent with your booking.
+      No app, no account.
     </p>
     <div class="hero__actions">
       <a class="btn btn--fill" href="https://tahoe-guestbook.vercel.app">Open the guide</a>
@@ -204,33 +210,33 @@ img{max-width:100%;display:block}
   <section class="sec" id="how">
     <div class="wrap">
       <p class="sec__label">How it works</p>
-      <h2 class="sec__title">Three things, and the third is optional</h2>
+      <h2 class="sec__title">Don't look things up. Ask.</h2>
       <div class="steps">
         <div class="step">
           <span class="step__n">1</span>
-          <h3 class="step__h">Open your booking link</h3>
+          <h3 class="step__h">See the day for yourself</h3>
           <p class="step__p">
-            The link in your booking message is yours: it tells the page which stay is
-            asking. That's why the Wi-Fi password appears right there for you — and
-            never sits in a public page anyone could read.
+            The forecast at the house and a live picture of the lake, right on the
+            first screen — so you see what the weather is actually doing and decide
+            for yourself, instead of guessing from an app.
           </p>
         </div>
         <div class="step">
           <span class="step__n">2</span>
-          <h3 class="step__h">Read it like a page, not an app</h3>
+          <h3 class="step__h">Ask instead of searching</h3>
           <p class="step__p">
-            Everything is already there when it loads: the house's answers, the
-            places, today's picks. The first thing you see is content, not a menu,
-            and it still works if your signal drops to almost nothing.
+            Instead of hunting for the sauna instruction, press one button and ask.
+            The concierge answers any question, suggests what fits, and spells out
+            what to do next — in chat or out loud on the phone.
           </p>
         </div>
         <div class="step">
           <span class="step__n">3</span>
-          <h3 class="step__h">Ask, tap, go</h3>
+          <h3 class="step__h">Turn it into your plan</h3>
           <p class="step__p">
-            Search everything from the top of the page. Tap + on anything to build
-            your day. Every place carries Directions; when the page can't answer,
-            you're one tap from asking the house itself.
+            Out of everything the area offers, keep what's yours: tap + on anything,
+            or build the plan in a conversation. Every place comes with directions
+            on the map and what makes it special.
           </p>
         </div>
       </div>
@@ -240,21 +246,20 @@ img{max-width:100%;display:block}
   <section class="sec sec--tight">
     <div class="wrap">
       <p class="sec__label">What's inside</p>
-      <h2 class="sec__title">Five sections behind one floating bar</h2>
+      <h2 class="sec__title">Five tabs, one floating bar</h2>
       <p class="sec__lead">
         The whole guide lives on one page — Now, House, Around, Book, Chat — so
-        switching sections is instant even with no signal at all.
+        switching tabs is instant even with no signal at all.
       </p>
       <div class="tabs">
         <article class="tab">
           <img src="photos/cam-tile-804.webp" alt="The live lake cam: Lake Tahoe from Stateline" loading="lazy" width="804" height="402">
           <div class="tab__body">
             <p class="tab__key">Now</p>
-            <h3 class="tab__h">Today, decided for you</h3>
+            <h3 class="tab__h">Your day at a glance</h3>
             <p class="tab__p">
-              The weather at the house, a live lake cam, a plan for today picked to fit
-              the day, and what's happening around the lake this week. If the morning
-              is grey, the plan already knows.
+              Your picks and your plan, our recommendations for today, the forecast,
+              the live lake cam, and what's happening around the lake this week.
             </p>
           </div>
         </article>
@@ -262,11 +267,12 @@ img{max-width:100%;display:block}
           <img src="photos/house-sauna-out-860.webp" alt="The outdoor sauna behind the house" loading="lazy" width="860" height="430">
           <div class="tab__body">
             <p class="tab__key">House</p>
-            <h3 class="tab__h">Every answer, in the hosts' words</h3>
+            <h3 class="tab__h">The house, explained</h3>
             <p class="tab__p">
-              Twenty-nine questions guests actually ask — "Where do I park", "How does
-              the sauna work", "How do I get in" — most-asked first, with photos of the
-              actual switches. Wi-Fi fills in for your booking.
+              Detailed instructions in our own words: how to fire up the sauna, how
+              the hot tub works, when the trash goes out, what to do when something
+              isn't behaving — with photos of the actual switches. Wi-Fi fills in
+              for your booking.
             </p>
           </div>
         </article>
@@ -274,23 +280,25 @@ img{max-width:100%;display:block}
           <img src="photos/house-paddleboard-860.webp" alt="Paddleboarding on Lake Tahoe" loading="lazy" width="860" height="430">
           <div class="tab__body">
             <p class="tab__key">Around</p>
-            <h3 class="tab__h">54 places the hosts have been</h3>
+            <h3 class="tab__h">Places we've been ourselves</h3>
             <p class="tab__p">
-              Beaches, trails, dinners, coffee — with real drive times and a verdict
-              first. Nothing here is scraped from a list.
+              Beaches, trails, restaurants, walks — the whole set of what's around,
+              led by the places we keep going back to. Real drive times, directions
+              on the map, and what makes each place worth it.
             </p>
-            <span class="badge">HOST'S PICK — their word, not an algorithm's</span>
+            <span class="badge">HOST'S PICK — our word, not an algorithm's</span>
           </div>
         </article>
         <article class="tab">
           <img src="photos/house-hottub-860.webp" alt="The hot tub on the deck at dusk" loading="lazy" width="860" height="430">
           <div class="tab__body">
             <p class="tab__key">Book · Chat</p>
-            <h3 class="tab__h">Book a day out, or just ask</h3>
+            <h3 class="tab__h">Everything local business offers</h3>
             <p class="tab__p">
-              Cruises, kayak rentals, snowmobiles — 170-odd bookable trips the guide
-              ranks and shelves itself, hosts' own picks flagged. And when you'd rather
-              ask in words, Chat answers with the same knowledge as everything above.
+              A full catalogue you can book from: cruise tickets, bikes, kayaks,
+              snowmobiles, concerts — with something that fits whatever the weather
+              does. And Chat is the concierge in writing: an open conversation about
+              your plans, your days, your questions.
             </p>
           </div>
         </article>
@@ -301,21 +309,22 @@ img{max-width:100%;display:block}
   <section class="sec">
     <div class="wrap">
       <p class="sec__label">My plan</p>
-      <h2 class="sec__title">Tap + and the day assembles itself</h2>
+      <h2 class="sec__title">From everything on offer to a plan that's yours</h2>
       <div class="plan">
         <div>
           <p class="plan__p" style="margin-top:0">
-            Anything in the guide — a beach, a dinner, a cruise — takes a + tap and
-            lands in your plan, grouped by day. It survives a reload, warns you when
-            two things collide, and the Share button sends the whole list to the rest
-            of your group in one link.
+            The area offers more than any stay can hold — so the point isn't a longer
+            list, it's your list. Add anything with a + tap or talk it through with
+            the concierge; the plan groups itself by day, warns you when two things
+            collide, survives a reload, and one Share link sends it to the rest of
+            your group.
           </p>
         </div>
         <div class="plan__demo" aria-hidden="true">
           <div class="plan__row"><span class="plan__t">09:30</span><span>Pope Beach — sand, shallow water, easy parking</span></div>
           <div class="plan__row"><span class="plan__t">13:00</span><span>Emerald Bay lookout <span class="plan__warn">· overlaps next stop</span></span></div>
           <div class="plan__row"><span class="plan__t">13:30</span><span>Kayak rental, Timber Cove</span></div>
-          <div class="plan__row"><span class="plan__t">19:00</span><span>Dinner — the hosts' pick for a first night</span></div>
+          <div class="plan__row"><span class="plan__t">19:00</span><span>Dinner — our pick for a first night</span></div>
         </div>
       </div>
     </div>
@@ -324,15 +333,18 @@ img{max-width:100%;display:block}
   <section class="sec sec--tight">
     <div class="wrap">
       <div class="phone">
-        <p class="phone__label">One brain, two mouths</p>
-        <h2 class="phone__h">The house also answers the phone</h2>
+        <p class="phone__label">The concierge</p>
+        <h2 class="phone__h">A voice that knows the house — even from the car</h2>
         <p class="phone__p">
-          Call the house's number — from the guide, or saved as a contact — and a
-          voice answers with the same knowledge as the page: the sauna, the parking,
-          what to do when it rains. It's a computer run for your hosts, it will say
-          so if you ask, and it works when your hands are full of firewood. Anything
-          urgent still reaches the hosts themselves, and an emergency is 911.
+          The concierge is available two ways: on this page, and on the house's own
+          phone number — which means it works with no internet at all. Say it however
+          you like; it listens, answers out loud, and asks back when it isn't sure.
+          Save the contact once and it connects through Siri or Google Assistant, so
+          you can talk through tomorrow's plan on the drive back from dinner. It's a
+          computer run by us, it will say so if you ask — and anything urgent still
+          reaches us directly.
         </p>
+        <p class="phone__quote">"Hey Siri, call Tahoe Concierge" — works from the car.</p>
       </div>
     </div>
   </section>
@@ -362,7 +374,7 @@ img{max-width:100%;display:block}
           <p class="honest__p">
             The voice on the phone and in chat says it's a computer if you ask.
             Marketplace bookings happen on Viator's checkout, not here, and the guide
-            says which recommendations are the hosts' own. The full plain-words note
+            says which recommendations are our own. The full plain-words note
             is at <a href="https://tahoe-guestbook.vercel.app/policy">How this guide works</a>.
           </p>
         </div>
@@ -378,9 +390,9 @@ img{max-width:100%;display:block}
           <p class="sec__label">Not booked yet?</p>
           <h2 class="sec__title" style="font-size:var(--fs-title)">The guide comes with every stay</h2>
           <p class="stay__p">
-            Most of it is open right now: browse the hosts' 54 places, watch the lake
-            cam, read how the sauna works. Book the house and the same page becomes
-            yours — Wi-Fi, your dates, your plan.
+            Most of it is open right now: browse our places, watch the lake cam,
+            read how the sauna works. Book the house and the same page becomes
+            yours — Wi-Fi, your dates, your plan, your concierge.
           </p>
           <a class="btn btn--line" href="https://tahoe-guestbook.vercel.app">Have a look around</a>
         </div>
@@ -392,8 +404,9 @@ img{max-width:100%;display:block}
 <footer class="foot">
   <div class="wrap">
     <p class="foot__p">
-      Made by the hosts, for the people staying in their house. It comes with the
-      house, not with a sign-up.
+      Made by us, the hosts, for the people staying in our house — so that the time
+      you spend here is the best part of it. It comes with the house, not with a
+      sign-up.
     </p>
     <p class="foot__links">
       <a href="https://tahoe-guestbook.vercel.app">Open the guide</a>
