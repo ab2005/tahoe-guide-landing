@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tahoe Now — ваше время здесь, с максимальной пользой</title>
+<meta name="description" content="С каждым проживанием в доме идёт собственный гид и консьерж: любимые места хозяев, всё, что предлагает район, живая картинка озера и личный план на ваши дни — собранный в разговоре.">
+<meta property="og:title" content="Tahoe Now — ваше время здесь, с максимальной пользой">
+<meta property="og:description" content="Гид и консьерж, которые идут вместе с домом. Спросите голосом, посмотрите на озеро вживую, выберите из всего, что предлагает район, и соберите из этого свой план.">
+<meta property="og:image" content="https://tahoe-guestbook.vercel.app/photos/og-card.jpg">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="en" href="../">
+<link rel="alternate" hreflang="ru" href="./">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Brand tokens — mirrors the guide's own stylesheet */
+  --page:#f4f4ef; --card:#fff; --line:#e0e0d6;
+  --ink:#12140f; --ink-2:#4d5245; --muted:#6b7060; --dim:#9b9f90;
+  --green:#2f6b2f; --green-hi:#3a8038; --green-dk:#24521f;
+  --tint:#eef2e8; --tint-line:#d5e0c9; --live:#8fd07a;
+  --dark:#12140f; --dark-hi:#1d2117; --dark-body:#c3c8b8; --dark-label:#b9c0aa;
+  --amber:#fdf6e6; --amber-line:#e8dcc0; --amber-ink:#8a6d2f;
+  --fs-micro:11px; --fs-meta:13px; --fs-small:15px; --fs-body:17px;
+  --fs-title:20px; --fs-head:24px; --fs-hero:34px; --fs-display:44px;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --r-card:12px; --r-img:8px; --r-pill:999px;
+}
+*,*::before,*::after{box-sizing:border-box}
+h1,h2,h3,h4,p,dl,dd,dt,figure,ul,ol{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--page);color:var(--ink);font-family:var(--sans);
+  font-size:var(--fs-body);line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--green);text-decoration:none}
+a:hover{color:var(--green-dk);text-decoration:underline}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:4px}
+
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+.narrow{max-width:660px}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.hero{padding:56px 0 40px}
+.hero__eyebrow{
+  font-family:var(--mono);font-size:var(--fs-meta);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:16px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+}
+.lang{font-family:var(--mono);font-size:var(--fs-meta);text-transform:none;letter-spacing:0}
+.hero__title{
+  font-size:var(--fs-display);line-height:1.12;font-weight:700;
+  letter-spacing:-.015em;max-width:16ch;
+}
+.hero__lead{
+  font-size:var(--fs-title);line-height:1.45;color:var(--ink-2);
+  max-width:38ch;margin-top:18px;font-weight:400;
+}
+.hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+/* One filled accent on the page: the door into the guide. */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);
+  padding:14px 26px;font-size:var(--fs-body);font-weight:600;line-height:1;
+  border:1.5px solid var(--green);min-height:48px;
+}
+.btn--fill{background:var(--green);color:#fff}
+.btn--fill:hover{background:var(--green-dk);border-color:var(--green-dk);color:#fff;text-decoration:none}
+.btn--line{color:var(--green);background:transparent}
+.btn--line:hover{border-color:var(--green-dk);text-decoration:none}
+.hero__note{
+  font-family:var(--mono);font-size:var(--fs-meta);color:var(--muted);margin-top:14px;
+}
+.hero__media{margin-top:36px;border-radius:var(--r-card);overflow:hidden;position:relative}
+.hero__media img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+.hero__chip{
+  position:absolute;left:14px;bottom:12px;display:inline-flex;align-items:center;gap:7px;
+  background:rgba(18,20,15,.78);color:var(--dark-body);border-radius:var(--r-pill);
+  padding:7px 13px;font-family:var(--mono);font-size:var(--fs-meta);
+}
+.hero__chip b{color:#fff;font-weight:500}
+
+/* ── Sections ──────────────────────────────────────────────────────────── */
+.sec{padding:44px 0}
+.sec--tight{padding-top:8px}
+.sec__label{
+  font-family:var(--mono);font-size:var(--fs-meta);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--green);margin-bottom:10px;
+}
+.sec__title{font-size:var(--fs-head);font-weight:700;letter-spacing:-.01em}
+.sec__lead{color:var(--ink-2);margin-top:10px;max-width:58ch}
+
+/* Steps */
+.steps{display:grid;gap:14px;margin-top:26px}
+@media(min-width:720px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:20px 18px;
+}
+.step__n{
+  font-family:var(--mono);font-size:var(--fs-meta);color:var(--green);
+  border:1px solid var(--tint-line);background:var(--tint);border-radius:var(--r-pill);
+  display:inline-flex;padding:3px 11px;margin-bottom:12px;
+}
+.step__h{font-size:var(--fs-body);font-weight:600}
+.step__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:7px}
+
+/* Tab cards */
+.tabs{display:grid;gap:14px;margin-top:26px}
+@media(min-width:720px){.tabs{grid-template-columns:1fr 1fr}}
+.tab{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);
+  overflow:hidden;display:flex;flex-direction:column;
+}
+.tab img{width:100%;height:auto;aspect-ratio:16/8;object-fit:cover}
+/* Product screenshots are tall phone captures: crop from the top, keep more height. */
+.img--shot{aspect-ratio:4/3.4;object-position:top}
+.tab__body{padding:18px 18px 20px}
+.tab__key{
+  font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);
+}
+.tab__h{font-size:var(--fs-title);font-weight:600;margin-top:4px}
+.tab__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:7px}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;background:var(--tint);
+  border:1px solid var(--tint-line);color:var(--green-dk);border-radius:var(--r-pill);
+  font-family:var(--mono);font-size:var(--fs-micro);padding:3px 10px;margin-top:10px;
+}
+
+/* Plan panel */
+.plan{
+  background:var(--tint);border:1px solid var(--tint-line);border-radius:var(--r-card);
+  padding:26px 22px;margin-top:26px;
+}
+@media(min-width:720px){.plan{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:30px}}
+.plan__p{color:var(--ink-2);font-size:var(--fs-small);margin-top:8px}
+.plan__demo{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-img);
+  padding:14px 16px;margin-top:18px;font-size:var(--fs-small);
+}
+@media(min-width:720px){.plan__demo{margin-top:0}}
+.plan__row{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);align-items:baseline}
+.plan__row:last-child{border-bottom:0}
+.plan__t{font-family:var(--mono);font-size:var(--fs-meta);color:var(--muted);min-width:52px}
+.plan__warn{color:var(--amber-ink);font-family:var(--mono);font-size:var(--fs-micro)}
+
+/* Phone panel — the dark card */
+.phone{
+  background:var(--dark);color:var(--dark-body);border-radius:var(--r-card);
+  padding:28px 22px;margin-top:26px;
+}
+@media(min-width:720px){.phone{padding:34px 32px}}
+.phone__label{
+  font-family:var(--mono);font-size:var(--fs-meta);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--live);margin-bottom:10px;
+}
+.phone__h{color:#fff;font-size:var(--fs-head);font-weight:700;max-width:26ch}
+.phone__p{margin-top:12px;max-width:58ch}
+.phone__p a{color:var(--live)}
+.phone__p a:hover{color:#fff}
+.phone__quote{
+  font-family:var(--mono);font-size:var(--fs-meta);color:var(--dark-label);
+  border-left:2px solid var(--live);padding-left:12px;margin-top:16px;
+}
+.phone__grid{display:grid;gap:26px}
+@media(min-width:720px){.phone__grid{grid-template-columns:1.5fr 1fr;align-items:center}}
+.phone__shot{
+  width:100%;max-width:300px;height:auto;border-radius:14px;
+  border:1px solid var(--dark-hi);justify-self:center;
+}
+
+/* Honesty rows */
+.honest{display:grid;gap:0;margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card)}
+.honest__row{padding:16px 18px;border-bottom:1px solid var(--line)}
+.honest__row:last-child{border-bottom:0}
+.honest__h{font-weight:600;font-size:var(--fs-body)}
+.honest__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:4px}
+
+/* Prospective */
+.stay{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden}
+@media(min-width:720px){.stay{display:grid;grid-template-columns:1fr 1fr}}
+.stay img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/9}
+.stay img.img--top{object-position:top}
+.stay__body{padding:24px 22px}
+.stay__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:8px}
+.stay__body .btn{margin-top:18px}
+
+/* Footer */
+.foot{padding:40px 0 56px;border-top:1px solid var(--line);margin-top:48px}
+.foot__p{font-size:var(--fs-small);color:var(--muted);max-width:56ch}
+.foot__links{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px;font-size:var(--fs-small)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="hero__eyebrow"><span>Саут-Лейк-Тахо · дом на Tuolumne Dr</span> <a class="lang" href="../" lang="en">English</a></p>
+    <h1 class="hero__title">Ваши дни здесь — с&nbsp;максимальной пользой.</h1>
+    <p class="hero__lead">
+      Обычный гостевой гид объясняет, как устроен дом. Наш делает это — а потом
+      помогает провести время по-настоящему хорошо: наши любимые места, всё, что
+      предлагает район, и консьерж, которого можно просто спросить. Одна ссылка
+      в вашем бронировании. Без приложения, без аккаунта.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--fill" href="https://tahoe-guestbook.vercel.app">Открыть гайд</a>
+      <a class="btn btn--line" href="#how">Как это работает</a>
+    </div>
+    <p class="hero__note">Собран так, чтобы грузиться на одной полоске LTE у озера.</p>
+    <figure class="hero__media">
+      <img src="../photos/house-deck-860.webp" alt="Терраса дома с видом на сосны" width="860" height="430">
+      <figcaption class="hero__chip"><b>Now</b> · House · Around · Book · Chat</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main>
+  <section class="sec" id="how">
+    <div class="wrap">
+      <p class="sec__label">Как это работает</p>
+      <h2 class="sec__title">Не ищите. Спросите.</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step__n">1</span>
+          <h3 class="step__h">Посмотрите на день сами</h3>
+          <p class="step__p">
+            Прогноз у дома и живая картинка озера — прямо на первом экране. Вы
+            видите, что погода делает на самом деле, и решаете сами, а не гадаете
+            по приложению.
+          </p>
+        </div>
+        <div class="step">
+          <span class="step__n">2</span>
+          <h3 class="step__h">Спросите вместо поиска</h3>
+          <p class="step__p">
+            Вместо того чтобы искать инструкцию к сауне, нажмите одну кнопку и
+            спросите. Консьерж ответит на любой вопрос, подскажет, что подходит,
+            и распишет, что делать дальше — в чате или голосом по телефону.
+          </p>
+        </div>
+        <div class="step">
+          <span class="step__n">3</span>
+          <h3 class="step__h">Превратите это в свой план</h3>
+          <p class="step__p">
+            Из всего, что предлагает район, оставьте своё: нажмите + на чём
+            угодно или соберите план в разговоре. У каждого места — дорога на
+            карте и то, чем оно особенное.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight">
+    <div class="wrap">
+      <p class="sec__label">Что внутри</p>
+      <h2 class="sec__title">Пять вкладок, одна плавающая панель</h2>
+      <p class="sec__lead">
+        Весь гайд живёт на одной странице — Now, House, Around, Book, Chat —
+        поэтому вкладки переключаются мгновенно, даже совсем без связи.
+      </p>
+      <div class="tabs">
+        <article class="tab">
+          <img class="img--shot" src="../photos/shot-now.webp" alt="Вкладка Now: вердикт по погоде поверх живой камеры озера и план на сегодня" loading="lazy" width="780" height="1400">
+          <div class="tab__body">
+            <p class="tab__key">Now</p>
+            <h3 class="tab__h">Ваш день с одного взгляда</h3>
+            <p class="tab__p">
+              Ваши выборы и ваш план, наши рекомендации на сегодня, прогноз,
+              живая камера озера и что происходит вокруг на этой неделе.
+            </p>
+          </div>
+        </article>
+        <article class="tab">
+          <img class="img--shot" src="../photos/shot-house.webp" alt="Вкладка House: вопросы, которые гости задают на самом деле, — самые частые первыми" loading="lazy" width="780" height="1400">
+          <div class="tab__body">
+            <p class="tab__key">House</p>
+            <h3 class="tab__h">Дом, с объяснениями</h3>
+            <p class="tab__p">
+              Подробные инструкции нашими словами: как разжечь сауну, как
+              работает джакузи, когда выносят мусор, что делать, если что-то
+              ведёт себя не так, — с фотографиями настоящих выключателей. Wi-Fi
+              подставляется для вашего бронирования.
+            </p>
+          </div>
+        </article>
+        <article class="tab">
+          <img src="../photos/kiva-beach-740.webp" alt="Снежные вершины Тахо, отражённые в озере у пляжа Kiva" loading="lazy" width="740" height="264">
+          <div class="tab__body">
+            <p class="tab__key">Around</p>
+            <h3 class="tab__h">Места, где мы были сами</h3>
+            <p class="tab__p">
+              Пляжи, тропы, рестораны, прогулки — весь набор того, что вокруг,
+              и впереди те места, куда мы возвращаемся сами. Реальное время в
+              пути, дорога на карте и то, ради чего каждое место стоит поездки.
+            </p>
+            <span class="badge">HOST'S PICK — наше слово, а не алгоритм</span>
+          </div>
+        </article>
+        <article class="tab">
+          <img class="img--shot" src="../photos/shot-chat.webp" alt="Вкладка Chat: консьерж начинает с погоды дня и предлагает спланировать его" loading="lazy" width="780" height="1400">
+          <div class="tab__body">
+            <p class="tab__key">Chat</p>
+            <h3 class="tab__h">Консьерж — в переписке</h3>
+            <p class="tab__p">
+              Интерфейс, который все уже знают: разговор с ИИ-ассистентом
+              текстом. Напишите вопрос, получите ответ, продолжите диалог —
+              планы, дни, что угодно про дом или озеро. Тот же мозг, что и голос
+              в телефоне.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="sec__label">Book</p>
+      <h2 class="sec__title">Всё, что предлагает локальный бизнес, — разложено по полкам</h2>
+      <div class="stay">
+        <img class="img--top" src="../photos/shot-book.webp" alt="Вкладка Book: полка «Out on the water», выбор хозяев — первым" loading="lazy" width="780" height="1400">
+        <div class="stay__body">
+          <p class="stay__p" style="margin-top:0">
+            Билеты, туры, круизы, аренда, концерты и события — около двухсот
+            предложений в районе Тахо, так что выбор настоящий. Гайд отсортировал,
+            проанализировал и разложил по полкам каждое из них, поэтому найти то,
+            что подходит вам — и погоде, — дело минут, а не вечера открытых
+            вкладок. Полка показывает подборку; каждая открывается в полный
+            каталог, и ничего не спрятано.
+          </p>
+          <a class="btn btn--line" href="https://tahoe-guestbook.vercel.app/book">Открыть полки</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="sec__label">Мой план</p>
+      <h2 class="sec__title">Из всего, что предлагают, — план, который ваш</h2>
+      <div class="plan">
+        <div>
+          <p class="plan__p" style="margin-top:0">
+            Район предлагает больше, чем вмещает любая поездка, — поэтому смысл
+            не в списке подлиннее, а в вашем списке. Добавляйте что угодно одним
+            нажатием + или обсудите с консьержем; план сам группируется по дням,
+            предупреждает, когда два пункта сталкиваются, переживает перезагрузку,
+            а одна ссылка «Поделиться» отправляет его остальной компании.
+          </p>
+        </div>
+        <div class="plan__demo" aria-hidden="true">
+          <div class="plan__row"><span class="plan__t">09:30</span><span>Pope Beach — песок, мелкая вода, лёгкая парковка</span></div>
+          <div class="plan__row"><span class="plan__t">13:00</span><span>Смотровая Emerald Bay <span class="plan__warn">· пересекается со следующим</span></span></div>
+          <div class="plan__row"><span class="plan__t">13:30</span><span>Аренда каяков, Timber Cove</span></div>
+          <div class="plan__row"><span class="plan__t">19:00</span><span>Ужин — наш выбор для первого вечера</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight">
+    <div class="wrap">
+      <div class="phone">
+        <p class="phone__label">Консьерж</p>
+        <h2 class="phone__h">Вокруг Тахо голос быстрее любого экрана</h2>
+        <div class="phone__grid">
+        <div>
+        <p class="phone__p">
+          Здесь помощь нужна ровно в те моменты, когда читать экран нельзя: руки
+          на руле, середина тропы, перчатки на старте маршрута. Консьерж живёт
+          на собственном телефонном номере дома, поэтому голосовой ответ — один
+          звонок, вообще без интернета, а когда он нужен, быстрый ответ решает.
+          Сохраните консьержа в контактах телефона один раз — и дальше он
+          доступен в любой момент через Siri или Google Assistant: без экрана,
+          без набора текста. Можно ехать, следить за дорогой, любоваться видами
+          и просто разговаривать: как проехать, где стоит остановиться, какую
+          тропу выбрать — он отвечает по ходу движения.
+        </p>
+        <p class="phone__p">
+          Голос — это ещё и простой способ пройти через большой поток информации.
+          Листать длинные списки и взвешивать рекомендации — труд, а разговор —
+          нет. Спросите, получите ответ, перебейте на полуслове — он замолчит и
+          выслушает. Ваш консьерж — искусственный интеллект: помогает планировать
+          пребывание, меняет план, когда меняется день, находит нужное и приносит
+          мгновенно. Он работает от имени хозяев дома, честно скажет, что он
+          компьютер, если спросить, — а всё срочное по-прежнему доходит до хозяев
+          напрямую.
+        </p>
+        <p class="phone__quote">«Hey Siri, call Tahoe Concierge» — работает из машины.</p>
+        </div>
+        <img class="phone__shot" src="../photos/shot-ask.webp" alt="Разговор с домом: одна кнопка — говорить, одна — позвонить, одна — сохранить контакт" loading="lazy" width="780" height="1400">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap narrow">
+      <p class="sec__label">Честная часть</p>
+      <h2 class="sec__title">Чего этот гайд не делает</h2>
+      <div class="honest">
+        <div class="honest__row">
+          <h3 class="honest__h">Не следит за вами</h3>
+          <p class="honest__p">
+            Ни аккаунта, ни аналитики, ни рекламных трекеров, ни cookies. Ваш
+            план живёт в вашем браузере и больше нигде.
+          </p>
+        </div>
+        <div class="honest__row">
+          <h3 class="honest__h">Не светит ваши коды</h3>
+          <p class="honest__p">
+            Пароль Wi-Fi и код двери никогда не записаны в страницу. Wi-Fi
+            подгружается только после того, как ссылка бронирования узнала вас;
+            дверь открывается по правилу, которое объясняет вкладка House.
+          </p>
+        </div>
+        <div class="honest__row">
+          <h3 class="honest__h">Не притворяется</h3>
+          <p class="honest__p">
+            Голос в телефоне и в чате скажет, что он компьютер, если спросить.
+            Оплата бронирований происходит на Viator, не здесь, и гайд честно
+            говорит, какие рекомендации — наши собственные. Подробная заметка
+            простыми словами — на странице
+            <a href="https://tahoe-guestbook.vercel.app/policy">How this guide works</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight">
+    <div class="wrap narrow">
+      <p class="sec__label">Почему он существует</p>
+      <h2 class="sec__title">Сделан на заказ — владельцем этого дома</h2>
+      <p class="sec__lead">
+        Всё началось с простого осознания: уютный, комфортный дом, где всё
+        сделано с любовью, — это ещё не то, что нужно гостям больше всего.
+        Главное — опыт пребывания здесь, и именно этот опыт — главная забота
+        хозяина. За первое отвечает дом; ради второго построен этот гайд.
+      </p>
+      <p class="sec__lead" style="margin-top:14px">
+        Хозяин дома — инженер с большой карьерой в стартапах Кремниевой долины,
+        поэтому к созданию качественного программного продукта он подошёл со
+        всей ответственностью, которой такая задача заслуживает. Это не готовое
+        гостевое приложение с нашим именем на обложке — это продукт, спроектированный
+        и построенный под этот один дом, с одним стандартом: ваше время здесь
+        уходит на озеро, а не на разбирательства.
+      </p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="stay">
+        <img src="../photos/house-firepit-860.webp" alt="Костровая чаша в саду в сумерках" loading="lazy" width="860" height="430">
+        <div class="stay__body">
+          <p class="sec__label">Ещё не забронировали?</p>
+          <h2 class="sec__title" style="font-size:var(--fs-title)">Гайд идёт с каждым проживанием</h2>
+          <p class="stay__p">
+            Большая часть открыта прямо сейчас: посмотрите наши места, камеру
+            озера, почитайте, как работает сауна. Забронируйте дом — и та же
+            страница станет вашей: Wi-Fi, ваши даты, ваш план, ваш консьерж.
+          </p>
+          <a class="btn btn--line" href="https://tahoe-guestbook.vercel.app">Осмотреться</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__p">
+      Сделан на заказ владельцем этого дома для людей, которые в нём живут, —
+      чтобы время, проведённое здесь, было лучшей частью поездки. Он идёт вместе
+      с домом, а не с регистрацией.
+    </p>
+    <p class="foot__links">
+      <a href="https://tahoe-guestbook.vercel.app">Открыть гайд</a>
+      <a href="https://tahoe-guestbook.vercel.app/policy">Как работает этот гайд</a>
+      <a href="../" lang="en">English version</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
