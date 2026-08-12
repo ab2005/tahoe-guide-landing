@@ -196,6 +196,17 @@ img{max-width:100%;display:block}
   width:100%;max-width:300px;
 }
 .ph img{width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:top;border-radius:30px}
+/* Dynamic Island: content runs under it, exactly like an edge-to-edge screenshot. */
+.ph::before{
+  content:'';position:absolute;top:5.2%;left:50%;transform:translateX(-50%);
+  width:29%;aspect-ratio:100/29;background:#0a0b08;border-radius:999px;z-index:2;
+}
+/* The hardware: mute, the volume rocker, and the side button. */
+.ph__hw{position:absolute;inset:0;pointer-events:none}
+.ph__hw::before,.ph__hw::after{content:''}
+.ph__hw::before{position:absolute;left:-3px;top:22%;width:3px;height:15%;background:#33382b;border-radius:2px 0 0 2px}
+.ph__hw::after{position:absolute;right:-3px;top:26%;width:3px;height:12%;background:#33382b;border-radius:0 2px 2px 0}
+.ph__mute{position:absolute;left:-3px;top:15%;width:3px;height:4.5%;background:#33382b;border-radius:2px 0 0 2px}
 .ph--sm{max-width:240px}
 .ph-center{display:flex;justify-content:center}
 
@@ -217,6 +228,7 @@ img{max-width:100%;display:block}
   border-radius:26px;padding:6px;
 }
 .hero__combo .ph img{border-radius:20px}
+.hero__combo .ph::before{top:4.6%}
 @media(max-width:559px){
   .hero__combo .ph{width:34%;bottom:-26px}
 }
@@ -249,7 +261,7 @@ img{max-width:100%;display:block}
         <img src="photos/house-deck-860.webp" alt="The deck of the house, looking into the pines" width="860" height="430">
         <figcaption class="hero__chip"><b>Now</b> · House · Around · Book · Chat</figcaption>
       </figure>
-      <span class="ph" aria-hidden="true"><img src="photos/ph-now.webp" alt="" width="640" height="1385" loading="lazy"></span>
+      <span class="ph" aria-hidden="true"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-now.webp" alt="" width="640" height="1385" loading="lazy"></span>
     </div>
   </div>
 </header>
@@ -261,7 +273,7 @@ img{max-width:100%;display:block}
       <h2 class="sec__title">Don't look things up. Ask.</h2>
       <div class="steps">
         <div class="step">
-          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><img src="photos/ph-cam.webp" alt="The live lake cam over the day's forecast, on a phone" width="640" height="1385" loading="lazy"></span></div>
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-cam.webp" alt="The live lake cam over the day's forecast, on a phone" width="640" height="1385" loading="lazy"></span></div>
           <span class="step__n">1</span>
           <h3 class="step__h">See the day for yourself</h3>
           <p class="step__p">
@@ -271,7 +283,7 @@ img{max-width:100%;display:block}
           </p>
         </div>
         <div class="step">
-          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><img src="photos/ph-ask.webp" alt="The Ask sheet: one button to talk, one to call, on a phone" width="640" height="1385" loading="lazy"></span></div>
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-ask.webp" alt="The Ask sheet: one button to talk, one to call, on a phone" width="640" height="1385" loading="lazy"></span></div>
           <span class="step__n">2</span>
           <h3 class="step__h">Ask instead of searching</h3>
           <p class="step__p">
@@ -281,7 +293,7 @@ img{max-width:100%;display:block}
           </p>
         </div>
         <div class="step">
-          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><img src="photos/ph-dinner.webp" alt="Around cards with + buttons that feed the plan, on a phone" width="640" height="1385" loading="lazy"></span></div>
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-dinner.webp" alt="Around cards with + buttons that feed the plan, on a phone" width="640" height="1385" loading="lazy"></span></div>
           <span class="step__n">3</span>
           <h3 class="step__h">Turn it into your plan</h3>
           <p class="step__p">
@@ -304,7 +316,7 @@ img{max-width:100%;display:block}
       </p>
       <div class="tabs">
         <article class="tab">
-          <div class="tab__shot"><span class="ph"><img src="photos/ph-now-returning.webp" alt="The Now tab: the weather verdict, today's plan and the live lake cam, on a phone" width="640" height="1385" loading="lazy"></span></div>
+          <div class="tab__shot"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-now-returning.webp" alt="The Now tab: the weather verdict, today's plan and the live lake cam, on a phone" width="640" height="1385" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">Now</p>
             <h3 class="tab__h">Your day at a glance</h3>
@@ -315,7 +327,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <div class="tab__shot"><span class="ph"><img src="photos/ph-sauna.webp" alt="The House tab opened on the sauna instruction, on a phone" width="640" height="1385" loading="lazy"></span></div>
+          <div class="tab__shot"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-sauna.webp" alt="The House tab opened on the sauna instruction, on a phone" width="640" height="1385" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">House</p>
             <h3 class="tab__h">The house, explained</h3>
@@ -328,7 +340,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <div class="tab__shot"><span class="ph"><img src="photos/ph-around.webp" alt="The Around tab: place cards with drive times and directions, on a phone" width="640" height="1385" loading="lazy"></span></div>
+          <div class="tab__shot"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-around.webp" alt="The Around tab: place cards with drive times and directions, on a phone" width="640" height="1385" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">Around</p>
             <h3 class="tab__h">Places we've been ourselves</h3>
@@ -341,7 +353,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <div class="tab__shot"><span class="ph"><img src="photos/ph-chat.webp" alt="The Chat tab: a written conversation with the concierge, on a phone" width="640" height="1385" loading="lazy"></span></div>
+          <div class="tab__shot"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-chat.webp" alt="The Chat tab: a written conversation with the concierge, on a phone" width="640" height="1385" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">Chat</p>
             <h3 class="tab__h">The concierge, in writing</h3>
@@ -362,7 +374,7 @@ img{max-width:100%;display:block}
       <p class="sec__label">Book</p>
       <h2 class="sec__title">Everything local business offers, laid out on shelves</h2>
       <div class="stay">
-        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><img src="photos/ph-book.webp" alt="The Book tab: shelves of tours and rentals, the hosts' pick first, on a phone" width="640" height="1385" loading="lazy"></span></div>
+        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-book.webp" alt="The Book tab: shelves of tours and rentals, the hosts' pick first, on a phone" width="640" height="1385" loading="lazy"></span></div>
         <div class="stay__body">
           <p class="stay__p" style="margin-top:0">
             Tickets, tours, cruises, rentals, concerts and events — around two
@@ -392,7 +404,7 @@ img{max-width:100%;display:block}
             your group.
           </p>
         </div>
-        <div class="ph-center"><span class="ph"><img src="photos/ph-plan.webp" alt="My plan on a phone: the day's rows, editable times, Share and Add to calendar" width="640" height="1385" loading="lazy"></span></div>
+        <div class="ph-center"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-plan.webp" alt="My plan on a phone: the day's rows, editable times, Share and Add to calendar" width="640" height="1385" loading="lazy"></span></div>
       </div>
     </div>
   </section>
@@ -426,7 +438,7 @@ img{max-width:100%;display:block}
         </p>
         <p class="phone__quote">"Hey Siri, call Tahoe Concierge" — works from the car.</p>
         </div>
-        <div class="ph-center"><span class="ph"><img src="photos/ph-ask.webp" alt="Talking to the house: one filled button to talk, one to call, one to save the contact" width="640" height="1385" loading="lazy"></span></div>
+        <div class="ph-center"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-ask.webp" alt="Talking to the house: one filled button to talk, one to call, one to save the contact" width="640" height="1385" loading="lazy"></span></div>
         </div>
       </div>
     </div>
@@ -463,7 +475,7 @@ img{max-width:100%;display:block}
           </p>
         </div>
       </div>
-      <div class="ph-center"><span class="ph ph--sm"><img src="photos/ph-policy.webp" alt="The policy page: how the guide works, in plain words, on a phone" width="640" height="1385" loading="lazy"></span></div>
+      <div class="ph-center"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-policy.webp" alt="The policy page: how the guide works, in plain words, on a phone" width="640" height="1385" loading="lazy"></span></div>
       </div>
     </div>
   </section>
@@ -489,7 +501,7 @@ img{max-width:100%;display:block}
         figuring things out.
       </p>
       </div>
-      <div class="ph-center"><span class="ph ph--sm"><img src="photos/ph-house.webp" alt="The House tab in the owner's own words, on a phone" width="640" height="1385" loading="lazy"></span></div>
+      <div class="ph-center"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-house.webp" alt="The House tab in the owner's own words, on a phone" width="640" height="1385" loading="lazy"></span></div>
       </div>
     </div>
   </section>
@@ -497,7 +509,7 @@ img{max-width:100%;display:block}
   <section class="sec">
     <div class="wrap">
       <div class="stay">
-        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><img src="photos/ph-now-returning.webp" alt="The Now screen of a booked stay: your dates, your plan, your concierge, on a phone" width="640" height="1385" loading="lazy"></span></div>
+        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-now-returning.webp" alt="The Now screen of a booked stay: your dates, your plan, your concierge, on a phone" width="640" height="1385" loading="lazy"></span></div>
         <div class="stay__body">
           <p class="sec__label">Not booked yet?</p>
           <h2 class="sec__title" style="font-size:var(--fs-title)">The guide comes with every stay</h2>
