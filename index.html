@@ -192,7 +192,9 @@ img{max-width:100%;display:block}
 /* ── Phone frame — every example is the product on a phone ─────────────── */
 .ph{
   position:relative;background:#12140f;border-radius:40px;padding:10px;
-  border:1px solid #2a2e24;box-shadow:0 14px 34px rgba(18,20,15,.16);
+  border:1px solid #2a2e24;
+  /* Lying on the page, lit from the upper left — one light source for all 14. */
+  box-shadow:16px 20px 40px rgba(18,20,15,.22), 4px 5px 10px rgba(18,20,15,.10);
   width:100%;max-width:300px;
 }
 .ph img{width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:top;border-radius:30px}
