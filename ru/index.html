@@ -229,8 +229,13 @@ img{max-width:100%;display:block}
 }
 .hero__combo .ph img{border-radius:20px}
 .hero__combo .ph::before{top:4.6%}
-@media(max-width:559px){
-  .hero__combo .ph{width:34%;bottom:-26px}
+/* Under ~720px the 2:1 photo is shorter than any phone, so the overlap flips:
+   the frame joins the flow below the photo and overhangs its bottom edge. */
+@media(max-width:719px){
+  .hero__combo .ph{
+    position:relative;right:auto;bottom:auto;width:52%;min-width:0;max-width:210px;
+    margin:-56px auto 0;display:block;
+  }
 }
 
 /* Footer */
