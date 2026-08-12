@@ -189,6 +189,38 @@ img{max-width:100%;display:block}
 .stay__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:8px}
 .stay__body .btn{margin-top:18px}
 
+/* ── Phone frame — every example is the product on a phone ─────────────── */
+.ph{
+  position:relative;background:#12140f;border-radius:40px;padding:10px;
+  border:1px solid #2a2e24;box-shadow:0 14px 34px rgba(18,20,15,.16);
+  width:100%;max-width:300px;
+}
+.ph img{width:100%;height:auto;aspect-ratio:390/664;object-fit:cover;object-position:top;border-radius:30px}
+.ph--sm{max-width:240px}
+.ph-center{display:flex;justify-content:center}
+
+.tab__shot{background:var(--tint);border-bottom:1px solid var(--line);display:flex;justify-content:center;padding:22px 18px}
+
+/* Text beside a phone */
+.duo{display:grid;gap:26px;margin-top:26px;align-items:center}
+@media(min-width:760px){
+  .duo{grid-template-columns:1.4fr 1fr}
+  .duo--flip{grid-template-columns:1fr 1.4fr}
+  .duo--flip .ph-center{order:-1}
+}
+
+/* Hero: the deck behind, the product in front */
+.hero__combo{position:relative;margin-top:36px}
+.hero__combo .hero__media{margin-top:0}
+.hero__combo .ph{
+  position:absolute;right:4%;bottom:-34px;width:24%;min-width:150px;max-width:220px;
+  border-radius:26px;padding:6px;
+}
+.hero__combo .ph img{border-radius:20px}
+@media(max-width:559px){
+  .hero__combo .ph{width:34%;bottom:-26px}
+}
+
 /* Footer */
 .foot{padding:40px 0 56px;border-top:1px solid var(--line);margin-top:48px}
 .foot__p{font-size:var(--fs-small);color:var(--muted);max-width:56ch}
@@ -212,10 +244,13 @@ img{max-width:100%;display:block}
       <a class="btn btn--line" href="#how">Как это работает</a>
     </div>
     <p class="hero__note">Собран так, чтобы грузиться на одной полоске LTE у озера.</p>
+    <div class="hero__combo">
     <figure class="hero__media">
       <img src="../photos/house-deck-860.webp" alt="Терраса дома с видом на сосны" width="860" height="430">
       <figcaption class="hero__chip"><b>Now</b> · House · Around · Book · Chat</figcaption>
     </figure>
+      <span class="ph" aria-hidden="true"><img src="../photos/ph-now.webp" alt="" width="640" height="1089" loading="lazy"></span>
+    </div>
   </div>
 </header>
 
@@ -226,6 +261,7 @@ img{max-width:100%;display:block}
       <h2 class="sec__title">Не ищите. Спросите.</h2>
       <div class="steps">
         <div class="step">
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><img src="../photos/ph-cam.webp" alt="Живая камера озера над прогнозом дня — на телефоне" width="640" height="1089" loading="lazy"></span></div>
           <span class="step__n">1</span>
           <h3 class="step__h">Посмотрите на день сами</h3>
           <p class="step__p">
@@ -235,6 +271,7 @@ img{max-width:100%;display:block}
           </p>
         </div>
         <div class="step">
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><img src="../photos/ph-ask.webp" alt="Шторка Ask: одна кнопка — говорить, одна — позвонить, на телефоне" width="640" height="1089" loading="lazy"></span></div>
           <span class="step__n">2</span>
           <h3 class="step__h">Спросите вместо поиска</h3>
           <p class="step__p">
@@ -244,6 +281,7 @@ img{max-width:100%;display:block}
           </p>
         </div>
         <div class="step">
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><img src="../photos/ph-dinner.webp" alt="Карточки Around с кнопками «+», собирающими план, на телефоне" width="640" height="1089" loading="lazy"></span></div>
           <span class="step__n">3</span>
           <h3 class="step__h">Превратите это в свой план</h3>
           <p class="step__p">
@@ -266,7 +304,7 @@ img{max-width:100%;display:block}
       </p>
       <div class="tabs">
         <article class="tab">
-          <img class="img--shot" src="../photos/shot-now.webp" alt="Вкладка Now: вердикт по погоде поверх живой камеры озера и план на сегодня" loading="lazy" width="780" height="1400">
+          <div class="tab__shot"><span class="ph"><img src="../photos/ph-now-returning.webp" alt="Вкладка Now: вердикт по погоде, план на сегодня и живая камера — на телефоне" width="640" height="1089" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">Now</p>
             <h3 class="tab__h">Ваш день с одного взгляда</h3>
@@ -277,7 +315,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img class="img--shot" src="../photos/shot-house.webp" alt="Вкладка House: вопросы, которые гости задают на самом деле, — самые частые первыми" loading="lazy" width="780" height="1400">
+          <div class="tab__shot"><span class="ph"><img src="../photos/ph-sauna.webp" alt="Вкладка House, открытая на инструкции к сауне, — на телефоне" width="640" height="1089" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">House</p>
             <h3 class="tab__h">Дом, с объяснениями</h3>
@@ -290,7 +328,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img src="../photos/kiva-beach-740.webp" alt="Снежные вершины Тахо, отражённые в озере у пляжа Kiva" loading="lazy" width="740" height="264">
+          <div class="tab__shot"><span class="ph"><img src="../photos/ph-around.webp" alt="Вкладка Around: карточки мест со временем в пути и маршрутами — на телефоне" width="640" height="1089" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">Around</p>
             <h3 class="tab__h">Места, где мы были сами</h3>
@@ -303,7 +341,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img class="img--shot" src="../photos/shot-chat.webp" alt="Вкладка Chat: консьерж начинает с погоды дня и предлагает спланировать его" loading="lazy" width="780" height="1400">
+          <div class="tab__shot"><span class="ph"><img src="../photos/ph-chat.webp" alt="Вкладка Chat: письменный разговор с консьержем — на телефоне" width="640" height="1089" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">Chat</p>
             <h3 class="tab__h">Консьерж — в переписке</h3>
@@ -324,7 +362,7 @@ img{max-width:100%;display:block}
       <p class="sec__label">Book</p>
       <h2 class="sec__title">Всё, что предлагает локальный бизнес, — разложено по полкам</h2>
       <div class="stay">
-        <img class="img--top" src="../photos/shot-book.webp" alt="Вкладка Book: полка «Out on the water», выбор хозяев — первым" loading="lazy" width="780" height="1400">
+        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><img src="../photos/ph-book.webp" alt="Вкладка Book: полки туров и прокатов, выбор хозяев — первым, на телефоне" width="640" height="1089" loading="lazy"></span></div>
         <div class="stay__body">
           <p class="stay__p" style="margin-top:0">
             Билеты, туры, круизы, аренда, концерты и события — около двухсот
@@ -354,8 +392,7 @@ img{max-width:100%;display:block}
             а одна ссылка «Поделиться» отправляет его остальной компании.
           </p>
         </div>
-        <div class="plan__demo" aria-hidden="true">
-          <div class="plan__row"><span class="plan__t">09:30</span><span>Pope Beach — песок, мелкая вода, лёгкая парковка</span></div>
+        <div class="ph-center"><span class="ph"><img src="../photos/ph-plan.webp" alt="Мой план на телефоне: строки дня, редактируемое время, Share и Add to calendar" width="640" height="1089" loading="lazy"></span></div>
           <div class="plan__row"><span class="plan__t">13:00</span><span>Смотровая Emerald Bay <span class="plan__warn">· пересекается со следующим</span></span></div>
           <div class="plan__row"><span class="plan__t">13:30</span><span>Аренда каяков, Timber Cove</span></div>
           <div class="plan__row"><span class="plan__t">19:00</span><span>Ужин — наш выбор для первого вечера</span></div>
@@ -394,17 +431,18 @@ img{max-width:100%;display:block}
         </p>
         <p class="phone__quote">«Hey Siri, call Tahoe Concierge» — работает из машины.</p>
         </div>
-        <img class="phone__shot" src="../photos/shot-ask.webp" alt="Разговор с домом: одна кнопка — говорить, одна — позвонить, одна — сохранить контакт" loading="lazy" width="780" height="1400">
+        <div class="ph-center"><span class="ph"><img src="../photos/ph-ask.webp" alt="Разговор с домом: одна кнопка — говорить, одна — позвонить, одна — сохранить контакт" width="640" height="1089" loading="lazy"></span></div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="sec">
-    <div class="wrap narrow">
+    <div class="wrap">
       <p class="sec__label">Честная часть</p>
       <h2 class="sec__title">Чего этот гайд не делает</h2>
-      <div class="honest">
+      <div class="duo">
+      <div class="honest" style="margin-top:0">
         <div class="honest__row">
           <h3 class="honest__h">Не следит за вами</h3>
           <p class="honest__p">
@@ -431,14 +469,17 @@ img{max-width:100%;display:block}
           </p>
         </div>
       </div>
+      <div class="ph-center"><span class="ph ph--sm"><img src="../photos/ph-policy.webp" alt="Страница политики: как устроен гайд, простыми словами, — на телефоне" width="640" height="1089" loading="lazy"></span></div>
+      </div>
     </div>
   </section>
 
   <section class="sec sec--tight">
-    <div class="wrap narrow">
+    <div class="wrap">
       <p class="sec__label">Почему он существует</p>
       <h2 class="sec__title">Сделан на заказ — владельцем этого дома</h2>
-      <p class="sec__lead">
+      <div class="duo"><div>
+      <p class="sec__lead" style="margin-top:0">
         Всё началось с простого осознания: уютный, комфортный дом, где всё
         сделано с любовью, — это ещё не то, что нужно гостям больше всего.
         Главное — опыт пребывания здесь, и именно этот опыт — главная забота
@@ -452,13 +493,16 @@ img{max-width:100%;display:block}
         и построенный под этот один дом, с одним стандартом: ваше время здесь
         уходит на озеро, а не на разбирательства.
       </p>
+      </div>
+      <div class="ph-center"><span class="ph ph--sm"><img src="../photos/ph-house.webp" alt="Вкладка House словами хозяев — на телефоне" width="640" height="1089" loading="lazy"></span></div>
+      </div>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
       <div class="stay">
-        <img src="../photos/house-firepit-860.webp" alt="Костровая чаша в саду в сумерках" loading="lazy" width="860" height="430">
+        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><img src="../photos/ph-now-returning.webp" alt="Экран Now забронированного визита: ваши даты, ваш план, ваш консьерж — на телефоне" width="640" height="1089" loading="lazy"></span></div>
         <div class="stay__body">
           <p class="sec__label">Ещё не забронировали?</p>
           <h2 class="sec__title" style="font-size:var(--fs-title)">Гайд идёт с каждым проживанием</h2>

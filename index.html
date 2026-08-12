@@ -189,6 +189,38 @@ img{max-width:100%;display:block}
 .stay__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:8px}
 .stay__body .btn{margin-top:18px}
 
+/* ── Phone frame — every example is the product on a phone ─────────────── */
+.ph{
+  position:relative;background:#12140f;border-radius:40px;padding:10px;
+  border:1px solid #2a2e24;box-shadow:0 14px 34px rgba(18,20,15,.16);
+  width:100%;max-width:300px;
+}
+.ph img{width:100%;height:auto;aspect-ratio:390/664;object-fit:cover;object-position:top;border-radius:30px}
+.ph--sm{max-width:240px}
+.ph-center{display:flex;justify-content:center}
+
+.tab__shot{background:var(--tint);border-bottom:1px solid var(--line);display:flex;justify-content:center;padding:22px 18px}
+
+/* Text beside a phone */
+.duo{display:grid;gap:26px;margin-top:26px;align-items:center}
+@media(min-width:760px){
+  .duo{grid-template-columns:1.4fr 1fr}
+  .duo--flip{grid-template-columns:1fr 1.4fr}
+  .duo--flip .ph-center{order:-1}
+}
+
+/* Hero: the deck behind, the product in front */
+.hero__combo{position:relative;margin-top:36px}
+.hero__combo .hero__media{margin-top:0}
+.hero__combo .ph{
+  position:absolute;right:4%;bottom:-34px;width:24%;min-width:150px;max-width:220px;
+  border-radius:26px;padding:6px;
+}
+.hero__combo .ph img{border-radius:20px}
+@media(max-width:559px){
+  .hero__combo .ph{width:34%;bottom:-26px}
+}
+
 /* Footer */
 .foot{padding:40px 0 56px;border-top:1px solid var(--line);margin-top:48px}
 .foot__p{font-size:var(--fs-small);color:var(--muted);max-width:56ch}
@@ -212,10 +244,13 @@ img{max-width:100%;display:block}
       <a class="btn btn--line" href="#how">How it works</a>
     </div>
     <p class="hero__note">Built to load on one bar of lakeside LTE.</p>
-    <figure class="hero__media">
-      <img src="photos/house-deck-860.webp" alt="The deck of the house, looking into the pines" width="860" height="430">
-      <figcaption class="hero__chip"><b>Now</b> · House · Around · Book · Chat</figcaption>
-    </figure>
+    <div class="hero__combo">
+      <figure class="hero__media">
+        <img src="photos/house-deck-860.webp" alt="The deck of the house, looking into the pines" width="860" height="430">
+        <figcaption class="hero__chip"><b>Now</b> · House · Around · Book · Chat</figcaption>
+      </figure>
+      <span class="ph" aria-hidden="true"><img src="photos/ph-now.webp" alt="" width="640" height="1089" loading="lazy"></span>
+    </div>
   </div>
 </header>
 
@@ -226,6 +261,7 @@ img{max-width:100%;display:block}
       <h2 class="sec__title">Don't look things up. Ask.</h2>
       <div class="steps">
         <div class="step">
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><img src="photos/ph-cam.webp" alt="The live lake cam over the day's forecast, on a phone" width="640" height="1089" loading="lazy"></span></div>
           <span class="step__n">1</span>
           <h3 class="step__h">See the day for yourself</h3>
           <p class="step__p">
@@ -235,6 +271,7 @@ img{max-width:100%;display:block}
           </p>
         </div>
         <div class="step">
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><img src="photos/ph-ask.webp" alt="The Ask sheet: one button to talk, one to call, on a phone" width="640" height="1089" loading="lazy"></span></div>
           <span class="step__n">2</span>
           <h3 class="step__h">Ask instead of searching</h3>
           <p class="step__p">
@@ -244,6 +281,7 @@ img{max-width:100%;display:block}
           </p>
         </div>
         <div class="step">
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><img src="photos/ph-dinner.webp" alt="Around cards with + buttons that feed the plan, on a phone" width="640" height="1089" loading="lazy"></span></div>
           <span class="step__n">3</span>
           <h3 class="step__h">Turn it into your plan</h3>
           <p class="step__p">
@@ -266,7 +304,7 @@ img{max-width:100%;display:block}
       </p>
       <div class="tabs">
         <article class="tab">
-          <img class="img--shot" src="photos/shot-now.webp" alt="The Now tab: the weather verdict over the live lake cam, and today's plan" loading="lazy" width="780" height="1400">
+          <div class="tab__shot"><span class="ph"><img src="photos/ph-now-returning.webp" alt="The Now tab: the weather verdict, today's plan and the live lake cam, on a phone" width="640" height="1089" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">Now</p>
             <h3 class="tab__h">Your day at a glance</h3>
@@ -277,7 +315,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img class="img--shot" src="photos/shot-house.webp" alt="The House tab: the questions guests actually ask, most-asked first" loading="lazy" width="780" height="1400">
+          <div class="tab__shot"><span class="ph"><img src="photos/ph-sauna.webp" alt="The House tab opened on the sauna instruction, on a phone" width="640" height="1089" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">House</p>
             <h3 class="tab__h">The house, explained</h3>
@@ -290,7 +328,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img src="photos/kiva-beach-740.webp" alt="Snowy Tahoe mountains reflected in the lake at Kiva Beach" loading="lazy" width="740" height="264">
+          <div class="tab__shot"><span class="ph"><img src="photos/ph-around.webp" alt="The Around tab: place cards with drive times and directions, on a phone" width="640" height="1089" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">Around</p>
             <h3 class="tab__h">Places we've been ourselves</h3>
@@ -303,7 +341,7 @@ img{max-width:100%;display:block}
           </div>
         </article>
         <article class="tab">
-          <img class="img--shot" src="photos/shot-chat.webp" alt="The Chat tab: the concierge opens with the day's weather and an offer to plan it" loading="lazy" width="780" height="1400">
+          <div class="tab__shot"><span class="ph"><img src="photos/ph-chat.webp" alt="The Chat tab: a written conversation with the concierge, on a phone" width="640" height="1089" loading="lazy"></span></div>
           <div class="tab__body">
             <p class="tab__key">Chat</p>
             <h3 class="tab__h">The concierge, in writing</h3>
@@ -324,7 +362,7 @@ img{max-width:100%;display:block}
       <p class="sec__label">Book</p>
       <h2 class="sec__title">Everything local business offers, laid out on shelves</h2>
       <div class="stay">
-        <img class="img--top" src="photos/shot-book.webp" alt="The Book tab: the Out-on-the-water shelf, the hosts' pick first" loading="lazy" width="780" height="1400">
+        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><img src="photos/ph-book.webp" alt="The Book tab: shelves of tours and rentals, the hosts' pick first, on a phone" width="640" height="1089" loading="lazy"></span></div>
         <div class="stay__body">
           <p class="stay__p" style="margin-top:0">
             Tickets, tours, cruises, rentals, concerts and events — around two
@@ -354,12 +392,7 @@ img{max-width:100%;display:block}
             your group.
           </p>
         </div>
-        <div class="plan__demo" aria-hidden="true">
-          <div class="plan__row"><span class="plan__t">09:30</span><span>Pope Beach — sand, shallow water, easy parking</span></div>
-          <div class="plan__row"><span class="plan__t">13:00</span><span>Emerald Bay lookout <span class="plan__warn">· overlaps next stop</span></span></div>
-          <div class="plan__row"><span class="plan__t">13:30</span><span>Kayak rental, Timber Cove</span></div>
-          <div class="plan__row"><span class="plan__t">19:00</span><span>Dinner — our pick for a first night</span></div>
-        </div>
+        <div class="ph-center"><span class="ph"><img src="photos/ph-plan.webp" alt="My plan on a phone: the day's rows, editable times, Share and Add to calendar" width="640" height="1089" loading="lazy"></span></div>
       </div>
     </div>
   </section>
@@ -393,17 +426,18 @@ img{max-width:100%;display:block}
         </p>
         <p class="phone__quote">"Hey Siri, call Tahoe Concierge" — works from the car.</p>
         </div>
-        <img class="phone__shot" src="photos/shot-ask.webp" alt="Talking to the house: one filled button to talk, one to call, one to save the contact" loading="lazy" width="780" height="1400">
+        <div class="ph-center"><span class="ph"><img src="photos/ph-ask.webp" alt="Talking to the house: one filled button to talk, one to call, one to save the contact" width="640" height="1089" loading="lazy"></span></div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="sec">
-    <div class="wrap narrow">
+    <div class="wrap">
       <p class="sec__label">The honest part</p>
       <h2 class="sec__title">What this guide is not doing</h2>
-      <div class="honest">
+      <div class="duo">
+      <div class="honest" style="margin-top:0">
         <div class="honest__row">
           <h3 class="honest__h">Not watching you</h3>
           <p class="honest__p">
@@ -429,14 +463,17 @@ img{max-width:100%;display:block}
           </p>
         </div>
       </div>
+      <div class="ph-center"><span class="ph ph--sm"><img src="photos/ph-policy.webp" alt="The policy page: how the guide works, in plain words, on a phone" width="640" height="1089" loading="lazy"></span></div>
+      </div>
     </div>
   </section>
 
   <section class="sec sec--tight">
-    <div class="wrap narrow">
+    <div class="wrap">
       <p class="sec__label">Why it exists</p>
       <h2 class="sec__title">Custom-made, by the owner of this house</h2>
-      <p class="sec__lead">
+      <div class="duo"><div>
+      <p class="sec__lead" style="margin-top:0">
         The story began with a simple realisation: a cosy, comfortable house where
         everything is made with love is not, by itself, what guests need most. What
         matters most is the experience of staying here — and that experience is the
@@ -451,13 +488,16 @@ img{max-width:100%;display:block}
         house, held to one standard: your time here, spent on the lake and not on
         figuring things out.
       </p>
+      </div>
+      <div class="ph-center"><span class="ph ph--sm"><img src="photos/ph-house.webp" alt="The House tab in the owner's own words, on a phone" width="640" height="1089" loading="lazy"></span></div>
+      </div>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
       <div class="stay">
-        <img src="photos/house-firepit-860.webp" alt="The fire pit in the garden at dusk" loading="lazy" width="860" height="430">
+        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><img src="photos/ph-now-returning.webp" alt="The Now screen of a booked stay: your dates, your plan, your concierge, on a phone" width="640" height="1089" loading="lazy"></span></div>
         <div class="stay__body">
           <p class="sec__label">Not booked yet?</p>
           <h2 class="sec__title" style="font-size:var(--fs-title)">The guide comes with every stay</h2>
