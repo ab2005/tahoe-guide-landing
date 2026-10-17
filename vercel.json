@@ -1,8 +1,22 @@
 {
-  "framework": null,
+  "buildCommand": "echo static",
+  "installCommand": "echo none",
+  "outputDirectory": ".",
   "redirects": [
-    { "source": "/ru", "destination": "/", "permanent": true },
-    { "source": "/ru/", "destination": "/", "permanent": true },
-    { "source": "/ru/index.html", "destination": "/", "permanent": true }
+    {
+      "source": "/ru",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/index.html",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

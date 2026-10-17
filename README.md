@@ -1,7 +1,11 @@
 # Tahoe guide — guest welcome page
 
 English welcome page for guests arriving at Tahoe Tuolumne, sent as a link before
-check-in. Production: https://tahoe-guide-landing.vercel.app/ (push to `main` deploys).
+check-in. Production: https://tahoe-guide-landing.vercel.app/
+
+The Vercel project is not connected to git — a push does not deploy. Deploy by hand:
+`vercel deploy --prod` from this folder. `vercel.json` pins a no-op build, because
+otherwise Vercel runs `npm run build` and fails (there is no package.json).
 Guest guide: https://tahoe.ai-host.ai/
 
 ## Run locally
