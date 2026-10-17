@@ -1,0 +1,8 @@
+{
+  "framework": null,
+  "redirects": [
+    { "source": "/ru", "destination": "/", "permanent": true },
+    { "source": "/ru/", "destination": "/", "permanent": true },
+    { "source": "/ru/index.html", "destination": "/", "permanent": true }
+  ]
+}
