@@ -1,0 +1,556 @@
+<!doctype html>
+<!-- Muse variant of the landing (Oct 17, 2026): same copy and canonical links as index.html; the phone screenshots in photos/ were re-shot from the live guide at tahoe.ai-host.ai. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tahoe Concierge — your stay, made the most of</title>
+<meta name="description" content="Every stay at the house comes with its own concierge and guide: the places the hosts love, everything local businesses offer, a live look at the lake, and a personal plan for your days — built in a conversation.">
+<meta property="og:title" content="Tahoe Concierge — your stay, made the most of">
+<meta property="og:description" content="A guide and a concierge that come with the house. Ask by voice, see the lake live, pick from everything the area offers, and turn it into your own plan.">
+<meta property="og:image" content="https://tahoe-guide-landing.vercel.app/photos/og-card.jpg">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="en" href="./">
+<link rel="alternate" hreflang="ru" href="../ru/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Brand tokens — mirrors the guide's own stylesheet */
+  --page:#f4f4ef; --card:#fff; --line:#e0e0d6;
+  --ink:#12140f; --ink-2:#4d5245; --muted:#6b7060; --dim:#9b9f90;
+  --green:#2f6b2f; --green-hi:#3a8038; --green-dk:#24521f;
+  --tint:#eef2e8; --tint-line:#d5e0c9; --live:#8fd07a;
+  --dark:#12140f; --dark-hi:#1d2117; --dark-body:#c3c8b8; --dark-label:#b9c0aa;
+  --amber:#fdf6e6; --amber-line:#e8dcc0; --amber-ink:#8a6d2f;
+  --fs-micro:11px; --fs-meta:13px; --fs-small:15px; --fs-body:17px;
+  --fs-title:20px; --fs-head:24px; --fs-hero:34px; --fs-display:44px;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --r-card:12px; --r-img:8px; --r-pill:999px;
+}
+*,*::before,*::after{box-sizing:border-box}
+h1,h2,h3,h4,p,dl,dd,dt,figure,ul,ol{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--page);color:var(--ink);font-family:var(--sans);
+  font-size:var(--fs-body);line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--green);text-decoration:none}
+a:hover{color:var(--green-dk);text-decoration:underline}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:4px}
+
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+.narrow{max-width:660px}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.hero{padding:56px 0 40px}
+.hero__eyebrow{
+  font-family:var(--mono);font-size:var(--fs-meta);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:16px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+}
+.lang{font-family:var(--mono);font-size:var(--fs-meta);text-transform:none;letter-spacing:0}
+.hero__title{
+  font-size:var(--fs-display);line-height:1.12;font-weight:700;
+  letter-spacing:-.015em;max-width:16ch;
+}
+.hero__lead{
+  font-size:var(--fs-title);line-height:1.45;color:var(--ink-2);
+  max-width:38ch;margin-top:18px;font-weight:400;
+}
+.hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+/* One filled accent on the page: the door into the guide. */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);
+  padding:14px 26px;font-size:var(--fs-body);font-weight:600;line-height:1;
+  border:1.5px solid var(--green);min-height:48px;
+}
+.btn--fill{background:var(--green);color:#fff}
+.btn--fill:hover{background:var(--green-dk);border-color:var(--green-dk);color:#fff;text-decoration:none}
+.btn--line{color:var(--green);background:transparent}
+.btn--line:hover{border-color:var(--green-dk);text-decoration:none}
+.hero__note{
+  font-family:var(--mono);font-size:var(--fs-meta);color:var(--muted);margin-top:14px;
+}
+.hero__media{margin-top:36px;border-radius:var(--r-card);overflow:hidden;position:relative}
+.hero__media img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+.hero__chip{
+  position:absolute;left:14px;bottom:12px;display:inline-flex;align-items:center;gap:7px;
+  background:rgba(18,20,15,.78);color:var(--dark-body);border-radius:var(--r-pill);
+  padding:7px 13px;font-family:var(--mono);font-size:var(--fs-meta);
+}
+.hero__chip b{color:#fff;font-weight:500}
+
+/* ── Sections ──────────────────────────────────────────────────────────── */
+.sec{padding:44px 0}
+.sec--tight{padding-top:8px}
+.sec__label{
+  font-family:var(--mono);font-size:var(--fs-meta);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--green);margin-bottom:10px;
+}
+.sec__title{font-size:var(--fs-head);font-weight:700;letter-spacing:-.01em}
+.sec__lead{color:var(--ink-2);margin-top:10px;max-width:58ch}
+
+/* Steps */
+.steps{display:grid;gap:14px;margin-top:26px}
+@media(min-width:720px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:20px 18px;
+}
+.step__n{
+  font-family:var(--mono);font-size:var(--fs-meta);color:var(--green);
+  border:1px solid var(--tint-line);background:var(--tint);border-radius:var(--r-pill);
+  display:inline-flex;padding:3px 11px;margin-bottom:12px;
+}
+.step__h{font-size:var(--fs-body);font-weight:600}
+.step__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:7px}
+
+/* Tab cards */
+.tabs{display:grid;gap:14px;margin-top:26px}
+@media(min-width:720px){.tabs{grid-template-columns:1fr 1fr}}
+.tab{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);
+  overflow:hidden;display:flex;flex-direction:column;
+}
+.tab img{width:100%;height:auto;aspect-ratio:16/8;object-fit:cover}
+/* Product screenshots are tall phone captures: crop from the top, keep more height. */
+.img--shot{aspect-ratio:4/3.4;object-position:top}
+.tab__body{padding:18px 18px 20px}
+.tab__key{
+  font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);
+}
+.tab__h{font-size:var(--fs-title);font-weight:600;margin-top:4px}
+.tab__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:7px}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;background:var(--tint);
+  border:1px solid var(--tint-line);color:var(--green-dk);border-radius:var(--r-pill);
+  font-family:var(--mono);font-size:var(--fs-micro);padding:3px 10px;margin-top:10px;
+}
+
+/* Plan panel */
+.plan{
+  background:var(--tint);border:1px solid var(--tint-line);border-radius:var(--r-card);
+  padding:26px 22px;margin-top:26px;
+}
+@media(min-width:720px){.plan{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:30px}}
+.plan__p{color:var(--ink-2);font-size:var(--fs-small);margin-top:8px}
+.plan__demo{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-img);
+  padding:14px 16px;margin-top:18px;font-size:var(--fs-small);
+}
+@media(min-width:720px){.plan__demo{margin-top:0}}
+.plan__row{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);align-items:baseline}
+.plan__row:last-child{border-bottom:0}
+.plan__t{font-family:var(--mono);font-size:var(--fs-meta);color:var(--muted);min-width:52px}
+.plan__warn{color:var(--amber-ink);font-family:var(--mono);font-size:var(--fs-micro)}
+
+/* Phone panel — the dark card */
+.phone{
+  background:var(--dark);color:var(--dark-body);border-radius:var(--r-card);
+  padding:28px 22px;margin-top:26px;
+}
+@media(min-width:720px){.phone{padding:34px 32px}}
+.phone__label{
+  font-family:var(--mono);font-size:var(--fs-meta);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--live);margin-bottom:10px;
+}
+.phone__h{color:#fff;font-size:var(--fs-head);font-weight:700;max-width:26ch}
+.phone__p{margin-top:12px;max-width:58ch}
+.phone__p a{color:var(--live)}
+.phone__p a:hover{color:#fff}
+.phone__quote{
+  font-family:var(--mono);font-size:var(--fs-meta);color:var(--dark-label);
+  border-left:2px solid var(--live);padding-left:12px;margin-top:16px;
+}
+.phone__grid{display:grid;gap:26px}
+@media(min-width:720px){.phone__grid{grid-template-columns:1.5fr 1fr;align-items:center}}
+.phone__shot{
+  width:100%;max-width:300px;height:auto;border-radius:14px;
+  border:1px solid var(--dark-hi);justify-self:center;
+}
+
+/* Honesty rows */
+.honest{display:grid;gap:0;margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card)}
+.honest__row{padding:16px 18px;border-bottom:1px solid var(--line)}
+.honest__row:last-child{border-bottom:0}
+.honest__h{font-weight:600;font-size:var(--fs-body)}
+.honest__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:4px}
+
+/* Prospective */
+.stay{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden}
+@media(min-width:720px){.stay{display:grid;grid-template-columns:1fr 1fr}}
+.stay img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/9}
+.stay img.img--top{object-position:top}
+.stay__body{padding:24px 22px}
+.stay__p{font-size:var(--fs-small);color:var(--ink-2);margin-top:8px}
+.stay__body .btn{margin-top:18px}
+
+/* ── Phone frame — every example is the product on a phone ─────────────── */
+.ph{
+  position:relative;background:#12140f;border-radius:40px;padding:10px;
+  border:1px solid #2a2e24;
+  /* Lying on the page, lit from the upper left — one light source for all 14. */
+  box-shadow:16px 20px 40px rgba(18,20,15,.22), 4px 5px 10px rgba(18,20,15,.10);
+  width:100%;max-width:300px;
+}
+.ph img{width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:top;border-radius:30px}
+/* Dynamic Island: content runs under it, exactly like an edge-to-edge screenshot. */
+.ph::before{
+  content:'';position:absolute;top:5.2%;left:50%;transform:translateX(-50%);
+  width:29%;aspect-ratio:100/29;background:#0a0b08;border-radius:999px;z-index:2;
+}
+/* The hardware: mute, the volume rocker, and the side button. */
+.ph__hw{position:absolute;inset:0;pointer-events:none}
+.ph__hw::before,.ph__hw::after{content:''}
+.ph__hw::before{position:absolute;left:-3px;top:22%;width:3px;height:15%;background:#33382b;border-radius:2px 0 0 2px}
+.ph__hw::after{position:absolute;right:-3px;top:26%;width:3px;height:12%;background:#33382b;border-radius:0 2px 2px 0}
+.ph__mute{position:absolute;left:-3px;top:15%;width:3px;height:4.5%;background:#33382b;border-radius:2px 0 0 2px}
+.ph--sm{max-width:240px}
+.ph-center{display:flex;justify-content:center}
+
+.tab__shot{background:var(--tint);border-bottom:1px solid var(--line);display:flex;justify-content:center;padding:22px 18px}
+
+/* Text beside a phone */
+.duo{display:grid;gap:26px;margin-top:26px;align-items:center}
+@media(min-width:760px){
+  .duo{grid-template-columns:1.4fr 1fr}
+  .duo--flip{grid-template-columns:1fr 1.4fr}
+  .duo--flip .ph-center{order:-1}
+}
+
+/* Hero: the deck behind, the product in front */
+.hero__combo{position:relative;margin-top:36px}
+.hero__combo .hero__media{margin-top:0}
+.hero__combo .ph{
+  position:absolute;right:4%;bottom:-34px;width:24%;min-width:150px;max-width:220px;
+  border-radius:26px;padding:6px;
+}
+.hero__combo .ph img{border-radius:20px}
+.hero__combo .ph::before{top:4.6%}
+/* Under ~720px the 2:1 photo is shorter than any phone, so the overlap flips:
+   the frame joins the flow below the photo and overhangs its bottom edge. */
+@media(max-width:719px){
+  .hero__combo .ph{
+    position:relative;right:auto;bottom:auto;width:52%;min-width:0;max-width:210px;
+    margin:-56px auto 0;display:block;
+  }
+}
+
+/* Footer */
+.foot{padding:40px 0 56px;border-top:1px solid var(--line);margin-top:48px}
+.foot__p{font-size:var(--fs-small);color:var(--muted);max-width:56ch}
+.foot__links{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px;font-size:var(--fs-small)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="hero__eyebrow"><span>South Lake Tahoe · a house on Tuolumne Dr</span> <a class="lang" href="../ru/" lang="ru">Русский</a></p>
+    <h1 class="hero__title">Your days here, made the most of.</h1>
+    <p class="hero__lead">
+      A guest book tells you how the house works. Ours does that — and then helps
+      you spend your time here well: the places we love, everything the area
+      offers, and a concierge you can just ask. One link, sent with your booking.
+      No app, no account.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--fill" href="https://tahoe.ai-host.ai">Open the guide</a>
+      <a class="btn btn--line" href="#how">How it works</a>
+    </div>
+    <p class="hero__note">Built to load on one bar of lakeside LTE.</p>
+    <div class="hero__combo">
+      <figure class="hero__media">
+        <img src="photos/house-deck-860.webp" alt="The deck of the house, looking into the pines" width="860" height="430">
+        <figcaption class="hero__chip"><b>Now</b> · House · Around · Book · Chat</figcaption>
+      </figure>
+      <span class="ph" aria-hidden="true"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-now.webp" alt="" width="780" height="1688" loading="lazy"></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="sec" id="how">
+    <div class="wrap">
+      <p class="sec__label">How it works</p>
+      <h2 class="sec__title">Don't look things up. Ask.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-cam.webp" alt="The live lake cam over the day's forecast, on a phone" width="780" height="1688" loading="lazy"></span></div>
+          <span class="step__n">1</span>
+          <h3 class="step__h">See the day for yourself</h3>
+          <p class="step__p">
+            The forecast at the house and a live picture of the lake, right on the
+            first screen — so you see what the weather is actually doing and decide
+            for yourself, instead of guessing from an app.
+          </p>
+        </div>
+        <div class="step">
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-ask.webp" alt="The Ask sheet: one button to talk, one to call, on a phone" width="780" height="1688" loading="lazy"></span></div>
+          <span class="step__n">2</span>
+          <h3 class="step__h">Ask instead of searching</h3>
+          <p class="step__p">
+            Instead of hunting for the sauna instruction, press one button and ask.
+            The concierge answers any question, suggests what fits, and spells out
+            what to do next — in chat or out loud on the phone.
+          </p>
+        </div>
+        <div class="step">
+          <div class="ph-center" style="margin-bottom:16px"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-dinner.webp" alt="Around cards with + buttons that feed the plan, on a phone" width="780" height="1688" loading="lazy"></span></div>
+          <span class="step__n">3</span>
+          <h3 class="step__h">Turn it into your plan</h3>
+          <p class="step__p">
+            Out of everything the area offers, keep what's yours: tap + on anything,
+            or build the plan in a conversation. Every place comes with directions
+            on the map and what makes it special.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight">
+    <div class="wrap">
+      <p class="sec__label">What's inside</p>
+      <h2 class="sec__title">Five tabs, one floating bar</h2>
+      <p class="sec__lead">
+        The whole guide lives on one page — Now, House, Around, Book, Chat — so
+        switching tabs is instant even with no signal at all.
+      </p>
+      <div class="tabs">
+        <article class="tab">
+          <div class="tab__shot"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-now-returning.webp" alt="The Now tab: the weather verdict, today's plan and the live lake cam, on a phone" width="780" height="1688" loading="lazy"></span></div>
+          <div class="tab__body">
+            <p class="tab__key">Now</p>
+            <h3 class="tab__h">Your day at a glance</h3>
+            <p class="tab__p">
+              Your picks and your plan, our recommendations for today, the forecast,
+              the live lake cam, and what's happening around the lake this week.
+            </p>
+          </div>
+        </article>
+        <article class="tab">
+          <div class="tab__shot"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-sauna.webp" alt="The House tab opened on the sauna instruction, on a phone" width="780" height="1688" loading="lazy"></span></div>
+          <div class="tab__body">
+            <p class="tab__key">House</p>
+            <h3 class="tab__h">The house, explained</h3>
+            <p class="tab__p">
+              Detailed instructions in our own words: how to fire up the sauna, how
+              the hot tub works, when the trash goes out, what to do when something
+              isn't behaving — with photos of the actual switches. Wi-Fi fills in
+              for your booking.
+            </p>
+          </div>
+        </article>
+        <article class="tab">
+          <div class="tab__shot"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-around.webp" alt="The Around tab: place cards with drive times and directions, on a phone" width="780" height="1688" loading="lazy"></span></div>
+          <div class="tab__body">
+            <p class="tab__key">Around</p>
+            <h3 class="tab__h">Places we've been ourselves</h3>
+            <p class="tab__p">
+              Beaches, trails, restaurants, walks — the whole set of what's around,
+              led by the places we keep going back to. Real drive times, directions
+              on the map, and what makes each place worth it.
+            </p>
+            <span class="badge">HOST'S PICK — our word, not an algorithm's</span>
+          </div>
+        </article>
+        <article class="tab">
+          <div class="tab__shot"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-chat.webp" alt="The Chat tab: a written conversation with the concierge, on a phone" width="780" height="1688" loading="lazy"></span></div>
+          <div class="tab__body">
+            <p class="tab__key">Chat</p>
+            <h3 class="tab__h">The concierge, in writing</h3>
+            <p class="tab__p">
+              The interface everyone already knows — a conversation with an AI
+              assistant, in text. Type a question, get an answer, keep the thread
+              going: your plans, your days, anything about the house or the lake.
+              Same brain as the voice on the phone.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="sec__label">Book</p>
+      <h2 class="sec__title">Everything local business offers, laid out on shelves</h2>
+      <div class="stay">
+        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-book.webp" alt="The Book tab: shelves of tours and rentals, the hosts' pick first, on a phone" width="780" height="1688" loading="lazy"></span></div>
+        <div class="stay__body">
+          <p class="stay__p" style="margin-top:0">
+            Tickets, tours, cruises, rentals, concerts and events — around two
+            hundred offers in the Tahoe area, so there is a real choice to make.
+            The guide has sorted, analysed and shelved every one of them, so
+            finding the one that suits you — and the weather — takes minutes, not
+            an evening of open tabs. A shelf shows a selection; every shelf opens
+            into the full catalogue, and nothing is hidden.
+          </p>
+          <a class="btn btn--line" href="https://tahoe.ai-host.ai/book">Browse the shelves</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="sec__label">My plan</p>
+      <h2 class="sec__title">From everything on offer to a plan that's yours</h2>
+      <div class="plan">
+        <div>
+          <p class="plan__p" style="margin-top:0">
+            The area offers more than any stay can hold — so the point isn't a longer
+            list, it's your list. Add anything with a + tap or talk it through with
+            the concierge; the plan groups itself by day, warns you when two things
+            collide, survives a reload, and one Share link sends it to the rest of
+            your group.
+          </p>
+        </div>
+        <div class="ph-center"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-plan.webp" alt="My plan on a phone: the day's rows, editable times, Share and Add to calendar" width="780" height="1688" loading="lazy"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight">
+    <div class="wrap">
+      <div class="phone">
+        <p class="phone__label">The concierge</p>
+        <h2 class="phone__h">Around Tahoe, your voice is faster than any screen</h2>
+        <div class="phone__grid">
+        <div>
+        <p class="phone__p">
+          Out here the moments you need help are exactly the moments you can't read a
+          screen: hands on the wheel, halfway up a trail, gloves on at a trailhead.
+          The concierge lives on the house's own phone number, so a voice answer is
+          one call away with no internet at all — and when you need it, a fast answer
+          matters. Save the concierge to your phone's contacts once, and from then on
+          it's there at any moment through Siri or Google Assistant — no screen, no
+          typing. You can drive, keep your eyes on the road, take in the views, and
+          just talk: how do we get there, what's worth a stop, which trail should we
+          pick — it answers as you go.
+        </p>
+        <p class="phone__p">
+          Voice is also the easier way through a lot of information. Scrolling long
+          lists and weighing recommendations is work; a conversation isn't. Ask, get
+          an answer, interrupt it mid-sentence — it stops and listens. Your concierge
+          is an AI: it helps plan your stay, changes the plan when the day changes,
+          finds what you need and delivers it instantly. It's run by your property
+          host, it will say it's a computer if you ask — and anything urgent still
+          reaches your host directly.
+        </p>
+        <p class="phone__quote">"Hey Siri, call Tahoe Concierge" — works from the car.</p>
+        </div>
+        <div class="ph-center"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-ask.webp" alt="Talking to the house: one filled button to talk, one to call, one to save the contact" width="780" height="1688" loading="lazy"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="sec__label">The honest part</p>
+      <h2 class="sec__title">What this guide is not doing</h2>
+      <div class="duo">
+      <div class="honest" style="margin-top:0">
+        <div class="honest__row">
+          <h3 class="honest__h">Not watching you</h3>
+          <p class="honest__p">
+            No account, no analytics, no ad trackers, no cookies. Your plan lives in
+            your browser and nowhere else.
+          </p>
+        </div>
+        <div class="honest__row">
+          <h3 class="honest__h">Not leaking your codes</h3>
+          <p class="honest__p">
+            The Wi-Fi password and door code are never written into the page. Wi-Fi
+            is fetched only after your booking link identifies you; the door opens by
+            a rule the House tab explains.
+          </p>
+        </div>
+        <div class="honest__row">
+          <h3 class="honest__h">Not pretending</h3>
+          <p class="honest__p">
+            The voice on the phone and in chat says it's a computer if you ask.
+            Marketplace bookings happen on Viator's checkout, not here, and the guide
+            says which recommendations are our own. The full plain-words note
+            is at <a href="https://tahoe.ai-host.ai/policy">How this guide works</a>.
+          </p>
+        </div>
+      </div>
+      <div class="ph-center"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-policy.webp" alt="The policy page: how the guide works, in plain words, on a phone" width="780" height="1688" loading="lazy"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight">
+    <div class="wrap">
+      <p class="sec__label">Why it exists</p>
+      <h2 class="sec__title">Custom-made, by the owner of this house</h2>
+      <div class="duo"><div>
+      <p class="sec__lead" style="margin-top:0">
+        The story began with a simple realisation: a cosy, comfortable house where
+        everything is made with love is not, by itself, what guests need most. What
+        matters most is the experience of staying here — and that experience is the
+        owner's chief concern. The house answers the first part; this guide was
+        built for the second.
+      </p>
+      <p class="sec__lead" style="margin-top:14px">
+        The owner is an engineer with a long career in Silicon Valley startups, so
+        building a quality software product was a task taken on with the
+        responsibility it deserves. This isn't an off-the-shelf guest app with our
+        name on it — it's a custom-made product, designed and built for this one
+        house, held to one standard: your time here, spent on the lake and not on
+        figuring things out.
+      </p>
+      </div>
+      <div class="ph-center"><span class="ph ph--sm"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-house.webp" alt="The House tab in the owner's own words, on a phone" width="780" height="1688" loading="lazy"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="stay">
+        <div class="tab__shot" style="border-bottom:0;border-right:1px solid var(--line)"><span class="ph"><i class="ph__hw" aria-hidden="true"><span class="ph__mute"></span></i><img src="photos/ph-now-returning.webp" alt="The Now screen of a booked stay: your dates, your plan, your concierge, on a phone" width="780" height="1688" loading="lazy"></span></div>
+        <div class="stay__body">
+          <p class="sec__label">Not booked yet?</p>
+          <h2 class="sec__title" style="font-size:var(--fs-title)">The guide comes with every stay</h2>
+          <p class="stay__p">
+            Most of it is open right now: browse our places, watch the lake cam,
+            read how the sauna works. Book the house and the same page becomes
+            yours — Wi-Fi, your dates, your plan, your concierge.
+          </p>
+          <span style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+          <a class="btn btn--line" style="margin-top:0" href="https://tahoe-concierge.vercel.app/">See the house &amp; book</a>
+          <a class="btn btn--line" style="margin-top:0" href="https://tahoe.ai-host.ai">Have a look around</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__p">
+      Custom-made by the owner of this house for the people staying in it — so that
+      the time you spend here is the best part of it. It comes with the house, not
+      with a sign-up.
+    </p>
+    <p class="foot__links">
+      <a href="https://tahoe-concierge.vercel.app/">The house — look &amp; book</a>
+      <a href="https://tahoe.ai-host.ai">Open the guide</a>
+      <a href="https://tahoe.ai-host.ai/policy">How this guide works</a>
+      <a href="../ru/" lang="ru">Русская версия</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
