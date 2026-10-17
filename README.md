@@ -1,7 +1,7 @@
 # Tahoe guide — landing page
 
-Marketing/orientation page for the Tahoe Now guest guide
-([tahoe-guestbook.vercel.app](https://tahoe-guestbook.vercel.app)). Written for two
+Marketing/orientation page for the Tahoe Concierge guest guide
+([tahoe.ai-host.ai](https://tahoe.ai-host.ai)). Written for two
 readers at once: guests who just booked and want to know what the link in their
 booking message does, and prospective guests weighing the house.
 
