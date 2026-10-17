@@ -50,6 +50,8 @@ b{font-weight:600}
 .feat a:hover{border-color:var(--green);text-decoration:none;color:var(--ink)}
 .feat b{display:block;font-size:var(--fs-small)}
 .feat span{display:block;font-size:var(--fs-meta);color:var(--ink-2);margin-top:1px}
+.hero__more{font-size:var(--fs-body);color:var(--ink-2);max-width:60ch;margin-top:14px}
+.hero__more b{color:var(--ink)}
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:14px 24px;font-size:var(--fs-body);font-weight:600;line-height:1;border:1.5px solid var(--green);min-height:48px}
 .btn--fill{background:var(--green);color:#fff}
@@ -152,10 +154,19 @@ b{font-weight:600}
       How to get in, where to park, the Wi-Fi, the dog — and the house guide
       on your phone that you can simply ask. No app, no account.
     </p>
+    <p class="hero__more">
+      The guide shows today's weather and a live view of the lake, picks what's
+      worth doing today, and flags this week's events and road closures. It
+      explains the house — hot tub, sauna, fire pit, heat, TV — and lists over
+      fifty places around the lake with drive times and directions. In
+      <b>Book</b> you'll find cruises, kayak tours, rentals and tickets, ready
+      to book. Tap <b>+</b> on anything to build your own day-by-day plan, or
+      just ask the concierge by voice or chat. The same guide runs on the
+      living room TV, and it's all private.
+    </p>
     <div class="actions">
       <a class="btn btn--fill" href="https://tahoe.ai-host.ai">Open the house guide</a>
       <a class="btn btn--line" href="https://www.google.com/maps/dir/?api=1&amp;destination=785+Tuolumne+Drive%2C+South+Lake+Tahoe%2C+CA+96150">Directions</a>
-      <a class="btn btn--line" href="#feedback">Message the owner</a>
     </div>
     <div class="facts" role="list">
       <div class="fact" role="listitem"><p class="fact__k">Check-in</p><p class="fact__v">from 4 PM</p></div>
@@ -167,9 +178,11 @@ b{font-weight:600}
       <li><a href="#arrive"><b>Arriving</b><span>Directions, parking, the smart lock, Wi-Fi.</span></a></li>
       <li><a href="#dog"><b>Your dog</b><span>House rules, dog-friendly beaches, walks and patios.</span></a></li>
       <li><a href="#ask"><b>Ask the house</b><span>An AI concierge — talk or type, any time.</span></a></li>
-      <li><a href="#guide"><b>The guide</b><span>Today's weather and live lake, places, tours, your plan.</span></a></li>
+      <li><a href="#guide"><b>The guide</b><span>Today's weather and live lake, events, places, your plan.</span></a></li>
+      <li><a href="#guide"><b>Book</b><span>Cruises, kayak tours, rentals and tickets around the lake.</span></a></li>
       <li><a href="#tv"><b>The TV</b><span>The house channel on Roku, HDMI 1.</span></a></li>
       <li><a href="#feedback"><b>Talk to the owner</b><span>Feedback and wishes — straight to Alex on WhatsApp.</span></a></li>
+      <li><a href="#privacy"><b>Private</b><span>No installs, no account, nothing shared with advertisers.</span></a></li>
       <li><a href="#leave"><b>Leaving</b><span>Check-out at 10 AM, and a short checklist.</span></a></li>
     </ul>
     <div class="hero__combo">
@@ -348,6 +361,22 @@ b{font-weight:600}
     </div>
   </section>
 
+  <section class="sec sec--tight" id="privacy">
+    <div class="wrap">
+      <p class="sec__label">Privacy</p>
+      <h2 class="sec__title">Private, by design</h2>
+      <div class="box" style="margin-top:22px;max-width:660px">
+        <ul class="rules">
+          <li><b>Nothing to install.</b> It's a web page — no app, no account, no sign-up.</li>
+          <li><b>No ads, no trackers.</b> Nothing about you is sold or shared with advertisers or anyone else.</li>
+          <li><b>Your plan stays on your phone.</b> It lives in your browser; nobody sees it unless you tap Share.</li>
+          <li><b>Your questions stay private.</b> The concierge uses them only to answer you. The guide counts which screens get opened, never what you type or say.</li>
+        </ul>
+      </div>
+      <p class="sec__lead" style="font-size:var(--fs-small)">The details, in plain words: <a href="https://tahoe.ai-host.ai/policy">How this guide works</a>.</p>
+    </div>
+  </section>
+
   <section class="sec" id="leave">
     <div class="wrap">
       <p class="sec__label">Before you leave</p>
@@ -370,7 +399,6 @@ b{font-weight:600}
 <footer class="foot">
   <div class="wrap">
     <p class="foot__p"><b>Contacts.</b> Hosts — Nicole, <a href="tel:+15302053434">(530) 205-3434</a>. Owner — Alex, <a href="https://wa.me/14084290090">WhatsApp +1 (408) 429-0090</a>. Emergency — <a href="tel:911">911</a>.</p>
-    <p class="foot__p">No guest account and no ad trackers. The guide counts which screens get opened so it can improve — never what you type or say. The voice concierge is an AI and says so. The plain-words details are in <a href="https://tahoe.ai-host.ai/policy">How this guide works</a>.</p>
     <p class="foot__links">
       <a href="https://tahoe.ai-host.ai">Open the house guide</a>
       <a href="https://tahoe.ai-host.ai/#house">House instructions</a>
