@@ -18,5 +18,11 @@
       "destination": "/",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/hosts",
+      "destination": "/hosts.html"
+    }
   ]
 }

@@ -145,6 +145,45 @@ b{font-weight:600}
 .ph-center{display:flex;justify-content:center}
 .dark .ph{border-color:#33382b;box-shadow:none}
 
+/* ── Motion: the guide, playing ─────────────────────────────────────────── */
+/* The hero phone walks through four real screens of the guide, with a caption
+   that says which. One orchestrated moment; everything else holds still. */
+.tour{position:absolute;right:4%;bottom:-34px;width:24%;min-width:150px;max-width:220px}
+.hero__combo .tour .ph{position:relative;right:auto;bottom:auto;width:100%;min-width:0;max-width:none;margin:0;border-radius:26px;padding:6px}
+.tour__shot{border-radius:20px;transition:opacity .7s ease}
+.tour__shot+.tour__shot{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
+.tour__shot:not(.is-on){opacity:0}
+.tour__cap{position:absolute;left:50%;transform:translateX(-50%);bottom:-40px;white-space:nowrap;
+  font-size:var(--fs-meta);font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r-pill);padding:5px 12px}
+.tour__cap span{display:inline-block;transition:opacity .3s}
+@media(max-width:719px){
+  .tour{position:relative;right:auto;bottom:auto;width:52%;min-width:0;max-width:210px;margin:-56px auto 0}
+  .hero__combo{margin-bottom:44px}
+}
+
+.live{display:flex;align-items:center;gap:8px;margin-top:22px;font-size:var(--fs-small);color:var(--ink-2)}
+.live__dot{width:8px;height:8px;border-radius:50%;background:var(--green-hi);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(58,128,56,.5)}70%{box-shadow:0 0 0 8px rgba(58,128,56,0)}100%{box-shadow:0 0 0 0 rgba(58,128,56,0)}}
+.live+.facts{margin-top:10px}
+
+/* Ask the house: one question at a time, typed, then answered. */
+/* A class that sets display beats the hidden attribute; these two swap places. */
+.asks[hidden],.chat[hidden],.live[hidden]{display:none}
+.chat{margin-top:18px;display:flex;flex-direction:column;gap:8px;min-height:176px;justify-content:flex-end}
+.chat__q,.chat__a{max-width:88%;padding:10px 14px;border-radius:16px;font-size:var(--fs-small);line-height:1.45}
+.chat__q{align-self:flex-end;background:#fff;color:var(--ink);border-bottom-right-radius:5px}
+.chat__a{align-self:flex-start;background:var(--dark-hi);color:#fff;border:1px solid #33382b;border-bottom-left-radius:5px;
+  opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.chat__a.in{opacity:1;transform:none}
+.chat__caret{display:inline-block;width:2px;height:1em;background:var(--ink);vertical-align:-2px;margin-left:1px;animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+.chat__dots{align-self:flex-start;display:flex;gap:4px;padding:12px 14px;border-radius:16px;background:var(--dark-hi);border:1px solid #33382b}
+.chat__dots i{width:6px;height:6px;border-radius:50%;background:var(--dark-label);animation:dots 1s infinite}
+.chat__dots i:nth-child(2){animation-delay:.15s}.chat__dots i:nth-child(3){animation-delay:.3s}
+@keyframes dots{0%,80%,100%{opacity:.25}40%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.tour__shot{transition:none}.live__dot{animation:none}}
+
 .foot{padding:36px 0 56px;border-top:1px solid var(--line);margin-top:40px}
 .foot__p{font-size:var(--fs-small);color:var(--muted);max-width:60ch}
 .foot__p + .foot__p{margin-top:10px}
@@ -175,6 +214,7 @@ b{font-weight:600}
       <a class="btn btn--fill" href="https://tahoe.ai-host.ai">Open the house guide</a>
       <a class="btn btn--line" href="https://www.google.com/maps/dir/?api=1&amp;destination=785+Tuolumne+Drive%2C+South+Lake+Tahoe%2C+CA+96150">Directions</a>
     </div>
+    <p class="live" id="live" hidden><span class="live__dot"></span><span id="live-text"></span></p>
     <div class="facts" role="list">
       <div class="fact" role="listitem"><p class="fact__k">Check-in</p><p class="fact__v">from 4 PM</p></div>
       <div class="fact" role="listitem"><p class="fact__k">Check-out</p><p class="fact__v">10 AM</p></div>
@@ -189,7 +229,15 @@ b{font-weight:600}
       <figure class="hero__media">
         <img src="https://tahoe-guide-landing.vercel.app/photos/house-deck-860.webp" alt="The deck of the house with the redwood sauna and the hot tub" width="860" height="430">
       </figure>
-      <span class="ph" aria-hidden="true"><img src="https://tahoe-guide-landing.vercel.app/photos/g-now.webp" alt="" width="640" height="1385"></span>
+      <div class="tour">
+        <span class="ph" aria-hidden="true">
+          <img class="tour__shot is-on" src="https://tahoe-guide-landing.vercel.app/photos/g-now.webp" alt="" width="640" height="1385">
+          <img class="tour__shot" src="https://tahoe-guide-landing.vercel.app/photos/g-house.webp" alt="" width="640" height="1385" loading="lazy">
+          <img class="tour__shot" src="https://tahoe-guide-landing.vercel.app/photos/g-plan.webp" alt="" width="640" height="1385" loading="lazy">
+          <img class="tour__shot" src="https://tahoe-guide-landing.vercel.app/photos/g-chat.webp" alt="" width="640" height="1385" loading="lazy">
+        </span>
+        <p class="tour__cap"><span>Today, at a glance</span></p>
+      </div>
     </div>
   </div>
 </header>
@@ -267,12 +315,13 @@ b{font-weight:600}
         <div class="dark__grid">
           <div>
             <p class="dark__p">The guide has a concierge built in: an AI that knows this house and the lake. On the first screen, tap <b>Talk</b> and just speak — or type in <b>Chat</b>. It answers, suggests what fits the weather and the day, and puts it into your plan.</p>
-            <div class="asks">
+            <div class="asks" id="asks">
               <span class="ask">"Where can I walk the dog?"</span>
               <span class="ask">"How do I heat the sauna?"</span>
               <span class="ask">"Dinner nearby tonight?"</span>
-              <span class="ask">"What should we do this afternoon?"</span>
+              <span class="ask">"What time is checkout?"</span>
             </div>
+            <div class="chat" id="chat" hidden aria-hidden="true"></div>
             <p class="dark__p">It's a computer and will say so if you ask. For anything urgent at the house, call Nicole: <a href="tel:+15302053434">(530) 205-3434</a>. Emergency: <a href="tel:911">911</a>.</p>
           </div>
           <div class="ph-center"><span class="ph ph--sm"><img src="https://tahoe-guide-landing.vercel.app/photos/g-chat.webp" alt="The Chat tab: the concierge, ready to answer" width="640" height="1385" loading="lazy"></span></div>
@@ -408,5 +457,124 @@ b{font-weight:600}
   </div>
 </footer>
 
+<script>
+// Motion on the guest welcome page. Without it, or with reduced motion on,
+// the page is the same page standing still: the first screen, the four chips.
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* The hero phone: four real screens of the guide, each with its caption. */
+  const shots = [...document.querySelectorAll('.tour__shot')];
+  const cap = document.querySelector('.tour__cap span');
+  const CAPS = ['Today, at a glance', 'How the house works', 'Your plan for the stay', 'Ask anything, any hour'];
+  if (shots.length && cap && !reduce) {
+    let i = 0;
+    let timer = 0;
+    const step = () => {
+      shots[i].classList.remove('is-on');
+      i = (i + 1) % shots.length;
+      shots[i].classList.add('is-on');
+      cap.style.opacity = '0';
+      setTimeout(() => {
+        cap.textContent = CAPS[i];
+        cap.style.opacity = '1';
+      }, 300);
+    };
+    // Plays only while it can be seen.
+    new IntersectionObserver(([e]) => {
+      clearInterval(timer);
+      if (e.isIntersecting) timer = setInterval(step, 3200);
+    }).observe(document.querySelector('.tour'));
+  }
+
+  /* Now at the house: the house's clock, and the weather when the page is
+     served from the guide's own address — the only place /api/now answers. */
+  const live = document.getElementById('live');
+  const liveText = document.getElementById('live-text');
+  let weather = '';
+  const tick = () => {
+    const t = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Los_Angeles',
+      hour: 'numeric',
+      minute: '2-digit',
+    })
+      .format(new Date())
+      .toLowerCase();
+    liveText.textContent = `Now at the house: ${t}${weather}`;
+    live.hidden = false;
+  };
+  if (live && liveText) {
+    tick();
+    setInterval(tick, 30_000);
+    if (location.hostname === 'tahoe.ai-host.ai') {
+      fetch('/api/now')
+        .then((r) => (r.ok ? r.json() : null))
+        .then((n) => {
+          if (n && n.tempF != null) {
+            weather = `, ${n.tempF}° and ${String(n.verdict || '').toLowerCase()}`;
+            tick();
+          }
+        })
+        .catch(() => {});
+    }
+  }
+
+  /* Ask the house: the chips become a short conversation that types itself. */
+  const asks = document.getElementById('asks');
+  const chat = document.getElementById('chat');
+  const QA = [
+    ['Where can I walk the dog?', 'Rabbit Hole Beach is a 20-minute walk from the door, and dogs are welcome. Kiva Beach is 15 minutes by car, dogs on a lead.'],
+    ['How do I heat the sauna?', 'Turn the timer knob slightly clockwise into the 0–1 zone. It starts heating right away and takes 30–45 minutes to get hot.'],
+    ['Dinner nearby tonight?', 'Lake Tahoe Aleworx at the Y: pizza and self-pour taps, 6 minutes away. Want it in your plan?'],
+    ['What time is checkout?', "10 AM. If you'd like to stay later, ask the hosts the night before."],
+  ];
+  if (!asks || !chat || reduce) return;
+  asks.hidden = true;
+  chat.hidden = false;
+  let k = 0;
+  let running = false;
+  let visible = false;
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  const add = (cls, html) => {
+    const d = document.createElement('div');
+    d.className = cls;
+    if (html) d.innerHTML = html;
+    chat.append(d);
+    return d;
+  };
+  async function round() {
+    const [q, a] = QA[k++ % QA.length];
+    chat.replaceChildren();
+    const qEl = add('chat__q');
+    const text = document.createTextNode('');
+    const caret = document.createElement('span');
+    caret.className = 'chat__caret';
+    qEl.append(text, caret);
+    for (let n = 1; n <= q.length; n++) {
+      text.textContent = q.slice(0, n);
+      await wait(42);
+    }
+    caret.remove();
+    await wait(350);
+    const dots = add('chat__dots', '<i></i><i></i><i></i>');
+    await wait(1100);
+    dots.remove();
+    const aEl = add('chat__a');
+    aEl.textContent = a;
+    requestAnimationFrame(() => aEl.classList.add('in'));
+    await wait(4200);
+  }
+  async function loop() {
+    if (running) return;
+    running = true;
+    while (visible) await round();
+    running = false;
+  }
+  new IntersectionObserver(([e]) => {
+    visible = e.isIntersecting;
+    if (visible) loop();
+  }).observe(chat);
+})();
+</script>
 </body>
 </html>
